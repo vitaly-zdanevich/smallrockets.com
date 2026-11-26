@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE="JavaScript1.1" SRC="../../basket.js"></SCRIPT>
+<META NAME="description" CONTENT="A real-time strategy game in which your aim is to wipe your opponent off the face of the earth.">
+<style> a{text-decoration:none; color="#ffffff"; text-decoration:underline;} </style>
+<style fprolloverstyle> A:hover {color: #C0C0C0; } </style>
+<TITLE>MAD : Global Thermonuclear Warfare | Buy the game now!</TITLE>
+</HEAD>
+<!-- How to buy -->
+<BODY BGCOLOR="#333399" TEXT="#ffffff" LINK="#C0C0C0" ALINK="#ffffff" VLINK="#C0C0C0">
+<SCRIPT LANGUAGE="JavaScript1.1">
+function GetSearchParam(param)
+{
+ var search = document.location.search;
+ search = unescape(search);
+var newvalue = "";
+for(var n=0;n<search.length;n++)
+{
+ if(search.substring(n, n+1) != " ")
+ {
+ newvalue += search.substring(n, n+1);
+ }
+}
+ search = newvalue;
+ if (search.length>0)
+ {
+ search = search.substring(1);
+ var params = search.split('&');
+ for (var i=0;i<params.length;i++)
+ {
+ var value = params[i];
+ var pos=value.indexOf(param + '=');
+ if (pos!=-1)
+ {
+ value = value.substring(param.length + 1);
+ return value;
+ }
+ }
+ }
+ return "";
+}
+function BuyProduct()
+{
+ var skuName;
+ var search = document.location.search;
+ if (search.length>0)
+ {
+ skuName = GetSearchParam('key');
+ }
+ BasketEmpty();
+ BasketAdd(skuName,'MAD Global Thermonuclear Warfare','PC',14.99,'index.html');
+ BasketGotoCheckout();
+ return false;
+}
+</SCRIPT>
+<CENTER>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0> <TR> <TD VALIGN="top" ALIGN="right" WIDTH=200 ROWSPAN=3><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="11" alt="" border="0"><BR><IMG SRC="../../shared/pi_small_rockets_shop_text.gif" WIDTH=200 HEIGHT=25></TD> <TD WIDTH=100%><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="11" alt="" border="0"></TD> <TD VALIGN="bottom" WIDTH=99 ROWSPAN=3><IMG SRC="../../shared/pi_side_rocket.gif" WIDTH=99 HEIGHT=46></TD> </TR> <TR> <TD VALIGN="top" BGCOLOR="#ffffff"><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="25" alt="" border="0"></TD> </TR> <TR> <TD VALIGN="top" BGCOLOR="#333399"><TD><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="10" alt="" border="0"></TD> </TR> </TABLE>
+<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=500>
+<TR>
+<TD VALIGN="top" COLSPAN=3 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="3" HEIGHT="3" alt="" border="0"></TD>
+</TR>
+<TR>
+<TD VALIGN="top" BGCOLOR="#000000" WIDTH=3><IMG SRC="../../shared/spacer.gif" WIDTH="3" HEIGHT="3" alt="" border="0"></TD>
+<TD VALIGN="top" WIDTH=594>
+<TABLE BORDER=0 CELLPADDING=10 CELLSPACING=0 WIDTH=100%>
+<TR>
+<TD VALIGN="top" COLSPAN=2 BGCOLOR="#006699" ALIGN="center"><img HEIGHT="169" WIDTH="331" src="images/pi_game_logo.gif"></TD>
+</TR>
+<TR>
+<TD VALIGN="top" BGCOLOR="#006699"><img HEIGHT="75" WIDTH="100" src="images/pi_shop_screen.gif"></TD>
+<TD VALIGN="top" BGCOLOR="#006699"><FONT FACE="Verdana, Helvetica, Arial" SIZE=4><B>Buy MAD : Global Thermonuclear Warfare</B>
+<P><FONT SIZE=2>Get a license key now for only $14.99!
+<P>
+<B>Features in the full version:</B>
+<UL>
+<LI>No limit on destroyed territories - play through to the bitter end!</LI>
+<LI>Five grades of nuke, ranging up to the awesome destructive capability of the Minuteman X</LI>
+<LI>Multiplayer mode - challenge another power-mad dictator via LAN or the Internet</LI>
+<LI>3 levels of difficulty, with devilish computer AI</LI>
+<LI>Ability to research and deploy the full range of weaponry, including Disruptors, Tesla Pulses and the Doomsday Device</LI>
+</UL>
+</TD>
+</TR>
+<TR>
+<TD COLSPAN=2 BGCOLOR="#006699"><P>
+<CENTER><FONT FACE="Verdana, Helvetica, Arial" SIZE=4><img HEIGHT="11" WIDTH="11" src="../../shared/arrow.gif" border=0>&nbsp;<A HREF="" onClick="BuyProduct();return false">Continue</A></CENTER>
+</TD>
+</TABLE>
+</TD>
+<TD VALIGN="top" BGCOLOR="#000000" WIDTH=3><IMG SRC="../../shared/spacer.gif" WIDTH="3" HEIGHT="3" alt="" border="0"></TD>
+<TR>
+<TD VALIGN="top" COLSPAN=3 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="3" HEIGHT="3" alt="" border="0"></TD>
+</TR>
+</TABLE>
+<BR>
+<BR>
+</BODY>
+</HTML>

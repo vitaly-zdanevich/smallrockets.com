@@ -1,0 +1,1 @@
+-license Squadron -run -name "Red Ace Squadron" -shortname Squadron

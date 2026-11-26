@@ -1,0 +1,1 @@
+-license ArtIsDead -run -name "Art Is Dead" -shortname ArtIsDead

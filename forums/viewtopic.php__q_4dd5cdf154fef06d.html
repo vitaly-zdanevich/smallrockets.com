@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-gb" xml:lang="en-gb">
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="content-language" content="en-gb" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="resource-type" content="document" />
+<meta name="distribution" content="global" />
+<meta name="copyright" content="2002-2006 phpBB Group" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="robots" CONTENT="noindex" />
+<title>Small Rockets Forum &bull; View topic - LAN Gaming HOW-TO: Multiplayer gaming over a local network</title>
+
+<link href="styles/prosilver/theme/print.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body id="phpbb">
+<div id="wrap">
+	<a id="top" name="top" accesskey="t"></a>
+
+	<div id="page-header">
+		<h1>Small Rockets Forum</h1>
+		<p>Comments, feedback and support!<br /><a href="index.html">http://smallrockets.com/forums/</a></p>
+		
+		<h2>LAN Gaming HOW-TO: Multiplayer gaming over a local network</h2>
+		<p><a href="viewtopic.php__q_5252f163bdf21f03.html">http://smallrockets.com/forums/viewtopic.php?f=10&amp;t=14855</a></p>
+	</div>
+
+	<div id="page-body">
+		<div class="page-number">Page <strong>1</strong> of <strong>1</strong></div>
+					<div class="post">
+				<h3>LAN Gaming HOW-TO: Multiplayer gaming over a local network</h3>
+				<div class="date"><img src="styles/prosilver/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" />Posted: <strong>Thu Oct 29, 2009 2:06 pm</strong></div>
+				<div class="author">by <strong style="color: #AA0000">stimarco</strong></div>
+				<div class="content">Hi readers,<br /><br />We get a lot of requests through our support section asking us how to play Red Ace Squadron Pro over a local network. I've decided to write this backgrounder piece to explain the basics.<br /><br /><span style="color: #FF4000"><span style="font-size: 200%; line-height: 116%;">Multiplayer RAS Pro Gaming over a LAN.</span></span><br /><br />If you’re having trouble playing a RAS Pro game over a home (or office) network, you may wish to read through this...<br /><br />Networking is a tricky subject, so if you don't understand what follows, ask a friendly computer guru to help out.<br /><br />*<br /><br />Our games follow a standard “host and guests” model, with a single server playing host to one, two or more guests. (This model is known in the industry as “client-server”, with the clients being the guests.)<br /><br />This is how most stuff on the Internet works: The website you’re reading this on sits on a web server, which is just a specialised PC. Your PC is the ‘guest’ in this case; our web server is the ‘host’.<br /><br />To play RAS Pro over your own network, you need to run the &quot;Red Ace Squadron Pro Server&quot; program on one of your PCs. This server program acts as the ‘host’, while each copy of the game itself is a ‘guest’. <br /><br />(NOTE: To avoid having to dedicate an entire PC to host duties, the same PC that runs the server can also run the game itself, becoming its own guest. If you do this, I advise running the server on the fastest of the PCs.)<br /><br />Now comes the tricky part: telling each PC where the server is!<br /><br />Computers prefer to do everything with numbers. On almost every network today, that means each computer has its own numeric address. This is called an &quot;IP Address&quot; and is the Internet's equivalent of a phone number. <br /><br />(The &quot;www.smallrockets.com&quot; address you see at the top of your web browser is converted into an IP Address by your computer; the textual address is just for us humans. Our web server’s IP Address is: 69.10.132.242. Type this into your web browser and you’ll see our website appear, as if you’d typed in the name instead.)<br /><br />Each PC on a network must have its own IP Address. This address is usually given to the computer when it’s switched on and varies from network to network, so I can't tell you what the address will be for your PC. They're usually of the form, &quot;192.168.x.y&quot;, or &quot;10.x.y.z&quot;. (Exactly what the &quot;x&quot;, &quot;y&quot; and &quot;z&quot; values are depends on your network's settings.)<br /><br />You will need to know the IP Address for the PC which will be running the Red Ace Squadron Pro Server program. There are a few ways to find this out, but the easiest one for me to describe—I can't put screenshots into this reply—is as follows:<br /><br />1. Hold down the Windows key (which normally opens the Start Menu) and press 'R'. <br /><br />You should see a small box asking for a command.<br /><br />2. In the command box, type: <span style="font-weight: bold">cmd</span><br /><br />Another window should now pop up. This will be mostly black, with white text.<br /><br />3. Type the following command: <span style="font-weight: bold">ipconfig /all</span><br /><br />This should bring up a new window looking rather like this:<br /><img src="http://upload.wikimedia.org/wikipedia/en/6/6c/Ipconfig_win_xp.png" alt="Image" /><br /><br />(NOTE: You will see an entry for each network device your PC has, even if it's not being used, so you may have to scroll through the results to find the relevant entry. Most PCs today have at least one &quot;Local Area Connection&quot; connector for attaching a network cable, while laptops will often have a wireless network device too, shown as a &quot;WiFi&quot;, &quot;WLAN&quot; or &quot;Wireless LAN&quot; connection.)<br /><br />4. If your PC is connected to the network using a network cable, you should look for the &quot;LAN&quot; or &quot;Local Area Connection&quot; entry. The only information you need is the &quot;IP Address&quot; entry.<br /><br />5. If your PC is connected to the network using a wireless connection, you should look for a &quot;Wireless LAN&quot;, &quot;WiFi&quot;, &quot;WLAN&quot; or &quot;Wireless Local Area Network&quot; entry. Again, the &quot;IP Address&quot; entry is the important one.<br /><br /><br />You can now tell the other PC to use this address to connect to the server. <br /><br />(NOTE: If you're also running the game itself on the server, you can use a special IP Address: 127.0.0.1. This is known as the &quot;loopback&quot; address.)<br /><br />If the two PCs fail to see each other after all this, you may need to adjust the settings on a &quot;firewall&quot; program. These programs act as gatekeepers, or night-club bouncers, keeping out unwanted guests, such as hackers. You will need to open up a &quot;port&quot; or two to allow the PCs and server to talk to each other.<br /><br />We have a section in our support area which covers firewall ports, <a href="../support/windows/network.htm" class="postlink">here.</a><br /><br />I’ve only touched on the most common issues. In 99% of cases, this should be enough to get you playing.</div>
+			</div>
+			<hr />
+			</div>
+
+<!--
+	We request you retain the full copyright notice below including the link to www.phpbb.com.
+	This not only gives respect to the large amount of time given freely by the developers
+	but also helps build interest, traffic and use of phpBB3. If you (honestly) cannot retain
+	the full copyright we ask you at least leave in place the "Powered by phpBB" line, with
+	"phpBB" linked to www.phpbb.com. If you refuse to include even this then support on our
+	forums may be affected.
+
+	The phpBB Group : 2006
+//-->
+	<div id="page-footer">
+		<div class="page-number">All times are UTC <br />Page <strong>1</strong> of <strong>1</strong></div>
+		<div class="copyright">Powered by phpBB &copy; 2000, 2002, 2005, 2007 phpBB Group<br />http://www.phpbb.com/</div>
+	</div>
+</div>
+
+</body>
+</html>

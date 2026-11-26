@@ -1,0 +1,205 @@
+/* Basic stuff */
+
+body {
+	/* background-color: #E3DBC2; */
+	/* Orange #E59C3F; */
+	/* Orange2 #FBA83E; */
+	background-color: #FFCC00;
+
+	/* background-image: url(/images/background.jpg);
+	background-repeat: repeat;
+	background-position: top left; */
+	font-family: Arial, Verdana, Helvetica;
+	font-size: 9pt;
+	color: black;
+}
+
+li {list-style: disk; }
+li li {list-style: circle; }
+
+hr {
+	color: #333399;
+	background-color:transparent
+}
+
+i, em { font-style: italic; }
+b, strong { font-weight:bold; }
+
+h1,h2,h3,h4 { background-color:transparent; font-weight:bold; margin-top:.15em;margin-bottom:.15em }
+h1 { font-size:14pt; color:3D4F8C; /* color:3333cc; */ }
+h2 { font-size:12pt; color:3D4F8C; /* color:333399; */}
+h3 { font-size:10pt; color:black;}
+h4 { font-size:8pt; color:black;}
+
+/* a 		{ font-weight: bold; text-decoration: none } */
+a:hover 	{ text-decoration: underline !important }
+a:link 		{ color: #333399; }
+a:visited 	{ color: #333399; }
+a:hover 	{ color: #ff0000; }
+
+/* Box out */
+
+.updatebox {
+	background-color:#E6E6EE;
+	font-size:9pt;
+}
+
+
+.boxout {
+	background-color:#ffffff;
+	font-size:8pt;
+}
+.boxoutheader {
+	background-color:#ffffff;
+	font-size:12pt;
+	font-weight:bold;
+}
+
+.content {
+	background-color:#B5BBC9;
+	font-size:9pt;
+}
+
+.maincontent {
+	background-color:#ffffff;
+	font-size:9pt;
+	color:black;
+}
+
+/* Basket */
+
+.basketcontent {
+	font-size:10pt;
+	color:black;
+}
+.basketcontent TH {
+	VERTICAL-ALIGN: middle;
+	color:white;
+	background-color:#3D4F8C;
+}
+
+
+.gameheader {
+	background-color:#ffffff;
+	font-size:10pt;
+}
+
+.pagefooter {
+	font-size:7pt;
+}
+
+.price {
+	color:#AC1010; /* #ff0000 */
+	font-weight: bold;
+	text-decoration: none
+}
+
+.important {
+	color:#AC1010; /* #ff0000 */
+	font-weight: bold;
+	text-decoration: none
+}
+
+
+.buyit {
+	color:#AC1010;
+	font-weight: bold;
+}
+a.buyit:link   		{
+	color: #AC1010;
+	/* text-decoration: underline !important */
+}
+
+.buyit a:visited { color: #AC1010; }
+.buyit a:hover 	{ color: #ff0000; }
+
+.tablecontent TH {
+	VERTICAL-ALIGN: middle; TEXT-ALIGN: left;
+	color:white;
+	background-color:#3D4F8C;
+}
+.tablecontent TR {
+	background-color: #E6E6EE; /* #B5BBC9; */
+}
+.tablecontent TD {
+	TEXT-ALIGN:left
+}
+
+.newmail TR {
+	background-color: #E6E6EE; /* #B5BBC9; */
+	font-weight: bold;
+}
+.newmail TD {
+	TEXT-ALIGN:left;
+	font-weight: bold;
+}
+
+
+.buyheader {
+	color:#B5BBC9;
+	background-color:#3D4F8C;
+	font-size:10pt;
+	font-weight: bold;
+}
+.buyheader a:link 	{ color: #ffffff; }
+.buyheader a:visited 	{ color: #ffffff; }
+.buyheader a:hover 	{ color: #ff0000; }
+.buyheader b { color: white; }
+
+.headermenu
+{
+	font-weight:bold;
+	font-size:10pt;
+	font-weight: bold;
+}
+.tiny {
+	font-size:7pt;
+}
+
+.bulleterror
+{
+	color:red;
+}
+
+.basket
+{
+	background-color:#B5BBC9;
+	font-size:8pt;
+	padding-left:4px;
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-right:2px;
+}
+
+.review
+{
+	font-style:italic;
+}
+.reviewscore
+{
+	color:red;
+	font-weight: bold;
+}
+.reviewauthor
+{
+	font-weight: bold;
+	color:blue;
+}
+
+.listbox
+{
+	font-family: Arial,Verdana,Helvetica;
+	font-size: 9pt;
+}
+.listbox FORM { margin:0px; border:0px; padding:0px;}
+
+
+.tablecontent {
+	font-size:9pt;
+	color:black;
+}
+table th .tablecontent {
+	background-color:#ff0000;
+}
+
+

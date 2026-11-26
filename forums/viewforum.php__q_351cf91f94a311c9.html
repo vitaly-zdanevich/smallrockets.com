@@ -1,0 +1,840 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<link rel="top" href="index.php.html" title="SmallRockets Discussion Forum Index" />
+<link rel="search" href="search.php.html" title="Search" />
+<link rel="help" href="faq.php.html" title="FAQ" />
+<link rel="author" href="memberlist.php.html" title="Memberlist" />
+<link rel="up" href="index.php.html" title="SmallRockets Discussion Forum Index" />
+
+<title>SmallRockets Discussion :: View Forum - Red Ace Squadron</title>
+<!-- link rel="stylesheet" href="templates/subSilver/smallrockets.css" type="text/css" -->
+<style type="text/css">
+<!--
+/*
+  The original subSilver Theme for phpBB version 2+
+  Created by subBlue design
+  http://www.subBlue.com
+
+  NOTE: These CSS definitions are stored within the main page body so that you can use the phpBB2
+  theme administration centre. When you have finalised your style you could cut the final CSS code
+  and place it in an external file, deleting this section to save bandwidth.
+*/
+
+/* General page style. The scroll bar colours only visible in IE5.5+ */
+body {
+	background-color: #FFCC0;
+	scrollbar-face-color: #DEE3E7;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-shadow-color: #DEE3E7;
+	scrollbar-3dlight-color: #D1D7DC;
+	scrollbar-arrow-color:  #333399;
+	scrollbar-track-color: #EFEFEF;
+	scrollbar-darkshadow-color: #98AAB1;
+}
+
+/* General font families for common tags */
+font,th,td,p { font-family: Verdana, Helvetica, Arial }
+a:link,a:active,a:visited { color : #333399; }
+a:hover		{ text-decoration: underline; color : #; }
+hr	{ height: 0px; border: solid #D1D7DC 0px; border-top-width: 1px;}
+
+/* This is the border line & background colour round the entire page */
+.bodyline	{ background-color: #FFFFFF; border: 1px #98AAB1 solid; }
+
+/* This is the outline round the main forum tables */
+.forumline	{ background-color: #FFFFFF; border: 2px #006699 solid; }
+
+/* Main table cell colours and backgrounds */
+td.row1	{ background-color: #EFEFEF; }
+td.row2	{ background-color: #DEE3E7; }
+td.row3	{ background-color: #D1D7DC; }
+
+/*
+  This is for the table cell above the Topics, Post & Last posts on the index.php page
+  By default this is the fading out gradiated silver background.
+  However, you could replace this with a bitmap specific for each forum
+*/
+td.rowpic {
+		background-color: #FFFFFF;
+		background-image: url(templates/subSilver/images/);
+		background-repeat: repeat-y;
+}
+
+/* Header cells - the blue and silver gradient backgrounds */
+th	{
+	color: #FFA34F; font-size: 11px; font-weight : bold;
+	background-color: #333399; height: 25px;
+	background-image: url(templates/subSilver/images/);
+}
+
+td.cat,td.catHead,td.catSides,td.catLeft,td.catRight,td.catBottom {
+			background-image: url(templates/subSilver/images/);
+			background-color:#D1D7DC; border: #FFFFFF; border-style: solid; height: 28px;
+}
+
+/*
+  Setting additional nice inner borders for the main table cells.
+  The names indicate which sides the border will be on.
+  Don't worry if you don't understand this, just ignore it :-)
+*/
+td.cat,td.catHead,td.catBottom {
+	height: 29px;
+	border-width: 0px 0px 0px 0px;
+}
+th.thHead,th.thSides,th.thTop,th.thLeft,th.thRight,th.thBottom,th.thCornerL,th.thCornerR {
+	font-weight: bold; border: #FFFFFF; border-style: solid; height: 28px;
+}
+td.row3Right,td.spaceRow {
+	background-color: #D1D7DC; border: #FFFFFF; border-style: solid;
+}
+
+th.thHead,td.catHead { font-size: 12px; border-width: 1px 1px 0px 1px; }
+th.thSides,td.catSides,td.spaceRow	 { border-width: 0px 1px 0px 1px; }
+th.thRight,td.catRight,td.row3Right	 { border-width: 0px 1px 0px 0px; }
+th.thLeft,td.catLeft	  { border-width: 0px 0px 0px 1px; }
+th.thBottom,td.catBottom  { border-width: 0px 1px 1px 1px; }
+th.thTop	 { border-width: 1px 0px 0px 0px; }
+th.thCornerL { border-width: 1px 0px 0px 1px; }
+th.thCornerR { border-width: 1px 1px 0px 0px; }
+
+/* The largest text used in the index page title and toptic title etc. */
+.maintitle	{
+	font-weight: bold; font-size: 22px; font-family: "",Verdana, Helvetica, Arial;
+	text-decoration: none; line-height : 120%; color : #333399;
+}
+
+/* General text */
+.gen { font-size : 12px; }
+.genmed { font-size : 11px; }
+.gensmall { font-size : 10px; }
+.gen,.genmed,.gensmall { color : #333399; }
+a.gen,a.genmed,a.gensmall { color: #333399; text-decoration: none; }
+a.gen:hover,a.genmed:hover,a.gensmall:hover	{ color: #; text-decoration: underline; }
+
+/* The register, login, search etc links at the top of the page */
+.mainmenu		{ font-size : 11px; color : #333399 }
+a.mainmenu		{ text-decoration: none; color : #333399;  }
+a.mainmenu:hover{ text-decoration: underline; color : #; }
+
+/* Forum category titles */
+.cattitle		{ font-weight: bold; font-size: 12px ; letter-spacing: 1px; color : #333399}
+a.cattitle		{ text-decoration: none; color : #333399; }
+a.cattitle:hover{ text-decoration: underline; }
+
+/* Forum title: Text and link to the forums used in: index.php */
+.forumlink		{ font-weight: bold; font-size: 12px; color : #333399; }
+a.forumlink 	{ text-decoration: none; color : #333399; }
+a.forumlink:hover{ text-decoration: underline; color : #; }
+
+/* Used for the navigation text, (Page 1,2,3 etc) and the navigation bar when in a forum */
+.nav			{ font-weight: bold; font-size: 11px; color : #333399;}
+a.nav			{ text-decoration: none; color : #333399; }
+a.nav:hover		{ text-decoration: underline; }
+
+/* titles for the topics: could specify viewed link colour too */
+.topictitle,h1,h2	{ font-weight: bold; font-size: 11px; color : #333399; }
+a.topictitle:link   { text-decoration: none; color : #333399; }
+a.topictitle:visited { text-decoration: none; color : #000000; }
+a.topictitle:hover	{ text-decoration: underline; color : #; }
+
+/* Name of poster in viewmsg.php and viewtopic.php and other places */
+.name			{ font-size : 11px; color : #333399;}
+
+/* Location, number of posts, post date etc */
+.postdetails		{ font-size : 10px; color : #333399; }
+
+/* The content of the posts (body of text) */
+.postbody { font-size : 12px; line-height: 18px}
+a.postlink:link	{ text-decoration: none; color : #333399 }
+a.postlink:visited { text-decoration: none; color : #000000; }
+a.postlink:hover { text-decoration: underline; color : #}
+
+/* Quote & Code blocks */
+.code {
+	font-family: ; font-size: 11px; color: #006600;
+	background-color: #FAFAFA; border: #D1D7DC; border-style: solid;
+	border-left-width: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px
+}
+
+.quote {
+	font-family: Verdana, Helvetica, Arial; font-size: 11px; color: #444444; line-height: 125%;
+	background-color: #FAFAFA; border: #D1D7DC; border-style: solid;
+	border-left-width: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px
+}
+
+/* Copyright and bottom info */
+.copyright		{ font-size: 10px; font-family: Verdana, Helvetica, Arial; color: #444444; letter-spacing: -1px;}
+a.copyright		{ color: #444444; text-decoration: none;}
+a.copyright:hover { color: #333399; text-decoration: underline;}
+
+/* Form elements */
+input,textarea, select {
+	color : #333399;
+	font: normal 11px Verdana, Helvetica, Arial;
+	border-color : #333399;
+}
+
+/* The text input fields background colour */
+input.post, textarea.post, select {
+	background-color : #FFFFFF;
+}
+
+input { text-indent : 2px; }
+
+/* The buttons used for bbCode styling in message post */
+input.button {
+	background-color : #EFEFEF;
+	color : #333399;
+	font-size: 11px; font-family: Verdana, Helvetica, Arial;
+}
+
+/* The main submit button option */
+input.mainoption {
+	background-color : #FAFAFA;
+	font-weight : bold;
+}
+
+/* None-bold submit button */
+input.liteoption {
+	background-color : #FAFAFA;
+	font-weight : normal;
+}
+
+/* This is the line in the posting page which shows the rollover
+  help line. This is actually a text box, but if set to be the same
+  colour as the background no one will know ;)
+*/
+.helpline { background-color: #DEE3E7; border-style: none; }
+
+/* Import the fancy styles for IE only (NS4.x doesn't use the @import function) */
+@import url("templates/subSilver/formIE.css");
+-->
+</style>
+</head>
+<body bgcolor="#FFCC0" text="#333399" link="#333399" vlink="#000000">
+
+<a name="top"></a>
+
+<table width="100%" cellspacing="0" cellpadding="10" border="0" align="center">
+	<tr>
+		<td class="bodyline"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+                                <td>
+<a href="../index.html"><img src="templates/smallrockets/images/logo_smallrockets.gif" border="0" alt="SmallRockets Discussion Forum Index" vspace="1" /></a>
+</td>
+				<td align="center" width="100%" valign="middle"><span class="maintitle">SmallRockets Discussion</span><br /><span class="gen">Discussions and information<br />&nbsp; </span>
+				<table cellspacing="0" cellpadding="2" border="0">
+					<tr>
+						<td align="center" valign="top" nowrap="nowrap"><span class="mainmenu">&nbsp;<a href="faq.php.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_faq.gif" width="12" height="13" border="0" alt="FAQ" hspace="3" />FAQ</a></span><span class="mainmenu">&nbsp; &nbsp;<a href="search.php.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_search.gif" width="12" height="13" border="0" alt="Search" hspace="3" />Search</a>&nbsp; &nbsp;<a href="memberlist.php.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_members.gif" width="12" height="13" border="0" alt="Memberlist" hspace="3" />Memberlist</a>&nbsp; &nbsp;<a href="groupcp.php.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_groups.gif" width="12" height="13" border="0" alt="Usergroups" hspace="3" />Usergroups</a>&nbsp;
+						&nbsp;<a href="profile.php__q_cbec47f8b71cc4e8.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_register.gif" width="12" height="13" border="0" alt="Register" hspace="3" />Register</a></span>&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<td height="25" align="center" valign="top" nowrap="nowrap"><span class="mainmenu">&nbsp;<a href="profile.php__q_e1fd4c8daf0fa86a.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_profile.gif" width="12" height="13" border="0" alt="Profile" hspace="3" />Profile</a>&nbsp; &nbsp;<a href="privmsg.php__q_056e466523aafbe0.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_message.gif" width="12" height="13" border="0" alt="Log in to check your private messages" hspace="3" />Log in to check your private messages</a>&nbsp; &nbsp;<a href="login.php.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_login.gif" width="12" height="13" border="0" alt="Log in" hspace="3" />Log in</a>&nbsp;</span></td>
+					</tr>
+				</table></td>
+			</tr>
+		</table>
+
+		<br />
+
+
+<form method="post" action="viewforum.php__q_0e6fc120bea2f56a.html">
+  <table width="100%" cellspacing="2" cellpadding="2" border="0" align="center">
+	<tr>
+	  <td align="left" valign="bottom" colspan="2"><a class="maintitle" href="viewforum.php__q_6b9b2579ede72c5a.html">Red Ace Squadron</a><br /><span class="gensmall"><b>Moderators: <a href="groupcp.php__q_8b3fd198a6d3556e.html">Red Ace Mods</a>, <a href="groupcp.php__q_a6313598b65ba6d0.html">General Mod</a><br /><br />Users browsing this forum: None</b></span></td>
+	  <td align="right" valign="bottom" nowrap="nowrap"><span class="gensmall"><b>Goto page  <a href="viewforum.php__q_b2d180bc7daf442e.html">Previous</a>&nbsp;&nbsp;<a href="viewforum.php__q_b2d180bc7daf442e.html">1</a>, <b>2</b>, <a href="viewforum.php__q_87366d56c5d49b19.html">3</a>, <a href="viewforum.php__q_7b205eec9045ddb0.html">4</a>, <a href="viewforum.php__q_512a57dbcbbe8998.html">5</a>, <a href="viewforum.php__q_68eb5fc7a1bb1901.html">6</a>, <a href="viewforum.php__q_eae765119273dfbb.html">7</a>, <a href="viewforum.php__q_7f30d054d4bc1b52.html">8</a>&nbsp;&nbsp;<a href="viewforum.php__q_87366d56c5d49b19.html">Next</a></b></span></td>
+	</tr>
+	<tr>
+	  <td align="left" valign="middle" width="50"><a href="posting.php__q_4a3e4c21ff17a6c7.html"><img src="templates/smallrockets/images/lang_english/post.gif" border="0" alt="Post new topic" /></a></td>
+	  <td align="left" valign="middle" class="nav" width="100%"><span class="nav">&nbsp;&nbsp;&nbsp;<a href="index.php.html" class="nav">SmallRockets Discussion Forum Index</a> -> <a class="nav" href="viewforum.php__q_6b9b2579ede72c5a.html">Red Ace Squadron</a></span></td>
+	  <td align="right" valign="bottom" class="nav" nowrap="nowrap"><span class="gensmall"><a href="viewforum.php__q_6b9b2579ede72c5a.html">Mark all topics read</a></span></td>
+	</tr>
+  </table>
+
+  <table border="0" cellpadding="4" cellspacing="1" width="100%" class="forumline">
+	<tr>
+	  <th colspan="2" align="center" height="25" class="thCornerL" nowrap="nowrap">&nbsp;Topics&nbsp;</th>
+	  <th width="50" align="center" class="thTop" nowrap="nowrap">&nbsp;Replies&nbsp;</th>
+	  <th width="100" align="center" class="thTop" nowrap="nowrap">&nbsp;Author&nbsp;</th>
+	  <th width="50" align="center" class="thTop" nowrap="nowrap">&nbsp;Views&nbsp;</th>
+	  <th align="center" class="thCornerR" nowrap="nowrap">&nbsp;Last Post&nbsp;</th>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_announce.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><b>Announcement:</b> <a href="viewtopic.php__q_3091f27e1351ec36.html" class="topictitle">PRO2 RELEASE UPDATE!</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">920</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sun Mar 19, 2006 11:35 am<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_78c3c025403eed07.html#23101"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_announce.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><b>Announcement:</b> <a href="viewtopic.php__q_426cbf7e1d953d79.html" class="topictitle">HQRAS Game TIPS &amp; STRATEGIES</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1058</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sun Jan 22, 2006 11:23 am<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_867d271c2a49b69d.html#22849"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_announce.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><b>Announcement:</b> <a href="viewtopic.php__q_425bc07e1d86cbf9.html" class="topictitle">Squadrons For PRO2 and RAS2 NOW FORMING</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">968</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sun Dec 18, 2005 7:13 pm<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_f69ac01c69a6f927.html#22591"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_announce.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><b>Announcement:</b> <a href="viewtopic.php__q_4254ce7e1d80c515.html" class="topictitle">RAS2 POLL</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1012</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Wed Nov 30, 2005 4:24 pm<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_f6b93d1c69c0cb1d.html#22508"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2029297e0a489f4a.html" class="topictitle">Red Ace Demo controls are overly sensitive?</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">5</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">NamelessJoe</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2141</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Mon May 02, 2005 1:54 pm<br /><a href="profile.php__q_9ad68e392884329c.html">Moose</a> <a href="viewtopic.php__q_48d4cd15becce959.html#21479"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_17056f7e04f8d956.html" class="topictitle">COULD NOT OPEN VIDEO MODE</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_91975b39231cd755.html">Dec1</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1067</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Thu Apr 21, 2005 2:43 pm<br /><a href="profile.php__q_666d8e390ab4ffe9.html">[RAS]xray</a> <a href="viewtopic.php__q_48caca15bec48fbb.html#21428"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2000977e0a265520.html" class="topictitle">SICK of Pickups!</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ad3153928812f2a.html">vonRedfire</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1122</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sat Apr 09, 2005 11:27 pm<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_51d38415c3fd8df7.html#21363"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2000987e0a2656d3.html" class="topictitle">server problems</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_919adb39231fe6ac.html">Qarka</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">990</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Apr 08, 2005 7:41 pm<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_51d00215c3fa7b3a.html#21355"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_20302c7e0a4ec311.html" class="topictitle">Glitch</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">6</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_919e683923230c1a.html">Falling Guy</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1619</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Wed Apr 06, 2005 4:37 pm<br />KPAX  <a href="viewtopic.php__q_51e47b15c40bf1df.html#21338"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_202caa7e0a4bb054.html" class="topictitle">dedicated ts server</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_919e683923230c1a.html">Falling Guy</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">816</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Tue Apr 05, 2005 3:32 am<br /><a href="profile.php__q_919e683923230c1a.html">Falling Guy</a> <a href="viewtopic.php__q_51e10215c408ee6d.html#21325"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_20302b7e0a4ec15e.html" class="topictitle">Did you know..?</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">7</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ac213392872b891.html">KrimsonAce</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1658</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Mon Apr 04, 2005 3:04 pm<br /><a href="profile.php__q_919e683923230c1a.html">Falling Guy</a> <a href="viewtopic.php__q_51dd7015c405c080.html#21317"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2026247e0a4660f4.html" class="topictitle">Help! My Saitek P880 sticks/ flying!</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">4</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_919ad739231fdfe0.html">groovus</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1449</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sat Apr 02, 2005 3:36 pm<br />TombStone  <a href="viewtopic.php__q_5adfad15c9397ea7.html#21253"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_6908cd1c3e8cecf6.html" class="topictitle">recommendations on list of joystick to buy for RAS</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">12</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9acc0139287aee80.html">Royredace</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3284</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sat Apr 02, 2005 5:02 am<br /><a href="profile.php__q_a217af392c39ef53.html">[RAS]Bullfrog</a> <a href="viewtopic.php__q_5ae31915c93c6c02.html#21247"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5fe49d1c393c5e80.html" class="topictitle">KPAX - 20 Tactical Tips for Red Ace Squadron Newbies</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">6</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_6666a3390aaf04ea.html">Steve Throner</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1939</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Mon Mar 28, 2005 6:34 pm<br /><a href="profile.php__q_919e683923230c1a.html">Falling Guy</a> <a href="viewtopic.php__q_5ae9a815c941caad.html#21228"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_20292a7e0a48a0fd.html" class="topictitle">Starting up GameSpy ... nothing happens</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">11</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_919e5c392322f7b6.html">yugo23</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2279</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Mon Mar 28, 2005 2:04 am<br /><a href="profile.php__q_919e683923230c1a.html">Falling Guy</a> <a href="viewtopic.php__q_5aed1e15c944c906.html#21218"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_20261f7e0a465875.html" class="topictitle">Customising Controls with .ini file</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_919e5a392322f450.html">the_woodcutter</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">799</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sat Mar 26, 2005 9:48 pm<br /><a href="profile.php__q_919e5a392322f450.html">the_woodcutter</a> <a href="viewtopic.php__q_5aed2715c944d851.html#21211"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_20261d7e0a46550f.html" class="topictitle">Could run demo, but not full RAS</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">futureneer</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">910</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Mar 25, 2005 10:01 pm<br /><a href="profile.php__q_919e5a392322f450.html">the_woodcutter</a> <a href="viewtopic.php__q_5af0a415c947e28f.html#21208"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_20291f7e0a488e4c.html" class="topictitle">Compliments</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_91af5a3923316783.html">Flight Lt. Biggles</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">840</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Wed Mar 23, 2005 12:50 am<br /><a href="profile.php__q_919e5a392322f450.html">the_woodcutter</a> <a href="viewtopic.php__q_63b8c515ce49f8db.html#21198"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_20291e7e0a488c99.html" class="topictitle">9 weeks and counting....</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">6</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_919e5f392322fccf.html">dog</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1535</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Tue Mar 22, 2005 1:22 am<br /><a href="profile.php__q_9acc0139287aee80.html">Royredace</a> <a href="viewtopic.php__q_63b8be15ce49ecf6.html#21193"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5fe4a41c393c6a65.html" class="topictitle">red ace on cd</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">fattenstyicky</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">988</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sun Mar 20, 2005 8:44 am<br /><a href="profile.php__q_919e5f392322fccf.html">dog</a> <a href="viewtopic.php__q_63a45815ce38969a.html#21171"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2029207e0a488fff.html" class="topictitle">Change Pilot Photos?</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_919e60392322fe82.html">ssbou</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">842</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Mar 18, 2005 3:03 pm<br /><a href="profile.php__q_9ac59a392875d3cd.html">RAFcaptain</a> <a href="viewtopic.php__q_63a0d115ce357b5e.html#21166"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2029217e0a4891b2.html" class="topictitle">Custom Configuration of Sidewinder Gamepad USB Joystick</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_919e60392322fe82.html">ssbou</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">727</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Mar 18, 2005 12:48 am<br /><a href="profile.php__q_919e60392322fe82.html">ssbou</a> <a href="viewtopic.php__q_63a0cf15ce3577f8.html#21164"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_d925f31c7de96c17.html" class="topictitle">Help! allied mission three</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">6</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Gray1</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1935</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Wed Mar 16, 2005 9:12 am<br /><a href="profile.php__q_9ad68e392884329c.html">Moose</a> <a href="viewtopic.php__q_63aac215ce3db666.html#21157"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_201f2a7e0a404c78.html" class="topictitle">problem installing license key</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">kuijt</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">833</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Mon Mar 14, 2005 5:14 pm<br />kuijt  <a href="viewtopic.php__q_63a7be15ce3b79c3.html#21143"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_201f317e0a40585d.html" class="topictitle">joystick</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">izzy</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">877</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Mar 11, 2005 2:16 pm<br /><a href="profile.php__q_9ac903392878bc0f.html">stimarco</a> <a href="viewtopic.php__q_639d4515ce3257a3.html#21118"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5ff5b21c394af562.html" class="topictitle">PUNKBUSTER IN RED ACE SQUADRON</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">newbie</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">840</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Mar 11, 2005 9:38 am<br />Guest  <a href="viewtopic.php__q_639d5315ce326f6d.html#21116"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_201f307e0a4056aa.html" class="topictitle">flying upside down</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">nutsUP</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">687</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Thu Mar 10, 2005 12:02 pm<br />nutsUP  <a href="viewtopic.php__q_639d4c15ce326388.html#21111"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2022957e0a433820.html" class="topictitle">Central Mission 5</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">jburawski</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">939</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Tue Mar 08, 2005 9:51 am<br />KPAX  <a href="viewtopic.php__q_6399c815ce2f4d65.html#21101"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_20229c7e0a434405.html" class="topictitle">The PING Fallacy</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">577</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sat Mar 05, 2005 10:53 pm<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_6b14eb15d21685c9.html#21097"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2022977e0a433b86.html" class="topictitle">Test Your TRUE Internet Speed</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">619</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sat Mar 05, 2005 10:43 pm<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_6b14e815d21680b0.html#21094"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_68fe5c1c3e83d86e.html" class="topictitle">Cheating</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">6</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Flight Lt. Biggles</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1597</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Tue Mar 01, 2005 11:22 pm<br /><a href="profile.php__q_91a167392325403e.html">[RAS]mo</a> <a href="viewtopic.php__q_6b187015d2199d9f.html#21082"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_20181c7e0a3a1600.html" class="topictitle">multiplater does'nt seem to work</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">bill kyner</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">642</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Mon Feb 28, 2005 3:03 am<br /><a href="profile.php__q_91af5a3923316783.html">Flight Lt. Biggles</a> <a href="viewtopic.php__q_6af66d15d1fcb220.html#21069"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2018297e0a3a2c17.html" class="topictitle">silly</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ac59a392875d3cd.html">RAFcaptain</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">730</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Feb 25, 2005 7:29 pm<br /><a href="profile.php__q_91a167392325403e.html">[RAS]mo</a> <a href="viewtopic.php__q_6aec6915d1f456cf.html#21055"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_d90e701c7dd5ae9d.html" class="topictitle">painted planes</a></span><span class="gensmall"><br />
+		 [ <img src="templates/smallrockets/images/icon_minipost.gif" alt="Goto page" title="Goto page" />Goto page: <a href="viewtopic.php__q_0091ec5a805ac8e4.html">1</a>, <a href="viewtopic.php__q_6eb1aa7e7ecb0466.html">2</a> ] </span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">29</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ac59a392875d3cd.html">RAFcaptain</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">7172</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Feb 25, 2005 6:37 pm<br /><a href="profile.php__q_9ad68e392884329c.html">Moose</a> <a href="viewtopic.php__q_6aec6815d1f4551c.html#21054"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2018287e0a3a2a64.html" class="topictitle">Sad</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">KPAX</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">530</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Thu Feb 24, 2005 7:23 pm<br />KPAX  <a href="viewtopic.php__q_6aef6815d1f68af3.html#21042"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2018277e0a3a28b1.html" class="topictitle">Sad</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">KPAX</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">412</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Thu Feb 24, 2005 7:07 pm<br />KPAX  <a href="viewtopic.php__q_6aef6915d1f68ca6.html#21041"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_2018267e0a3a26fe.html" class="topictitle">editing</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Guest</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">643</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Thu Feb 24, 2005 3:05 pm<br /><a href="profile.php__q_9ac59a392875d3cd.html">RAFcaptain</a> <a href="viewtopic.php__q_6b007015d2050bbe.html#21038"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_68fadd1c3e80caca.html" class="topictitle">WHO IS CHEATER ACTUALLY?</a></span><span class="gensmall"><br />
+		 [ <img src="templates/smallrockets/images/icon_minipost.gif" alt="Goto page" title="Goto page" />Goto page: <a href="viewtopic.php__q_2bfcbf5a98fa4177.html">1</a>, <a href="viewtopic.php__q_3187857e5bffd349.html">2</a> ] </span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">20</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Spad XIII</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3932</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Wed Feb 23, 2005 2:03 am<br /><a href="profile.php__q_91a167392325403e.html">[RAS]mo</a> <a href="viewtopic.php__q_03b0e50d0ae0f442.html#20976"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5ff9201c394de623.html" class="topictitle">Demo won't install</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_91a4e43923284a7c.html">Jazz</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">650</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sun Feb 20, 2005 8:55 pm<br /><a href="profile.php__q_91a4e43923284a7c.html">Jazz</a> <a href="viewtopic.php__q_03b7680d0ae63e89.html#20955"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5ff9251c394deea2.html" class="topictitle">online play</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Sir Scum</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">727</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sat Feb 19, 2005 5:13 pm<br /><a href="profile.php__q_9ac59a392875d3cd.html">RAFcaptain</a> <a href="viewtopic.php__q_03b76b0d0ae643a2.html#20950"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5ff9211c394de7d6.html" class="topictitle">can someone use cheats to kill cheater?</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Anti Cheater</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">601</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Feb 18, 2005 2:46 pm<br /><a href="profile.php__q_9ac59a392875d3cd.html">RAFcaptain</a> <a href="viewtopic.php__q_03be760d0aec7501.html#20937"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5ff91f1c394de470.html" class="topictitle">Final Step</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Matt S</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">755</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Feb 18, 2005 8:24 am<br /><a href="profile.php__q_9ac903392878bc0f.html">stimarco</a> <a href="viewtopic.php__q_03be730d0aec6fe8.html#20934"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5ff9221c394de989.html" class="topictitle">Help !</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Matt S</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">686</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Feb 18, 2005 4:15 am<br />Matt S  <a href="viewtopic.php__q_03be770d0aec76b4.html#20930"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5ff5b71c394afde1.html" class="topictitle">play on line</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_91a87039232b6e37.html">Lt Al great</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">602</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Feb 18, 2005 3:33 am<br />[RAS]xray  <a href="viewtopic.php__q_03c1750d0aeea925.html#20928"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5ff5b41c394af8c8.html" class="topictitle">1986 - The ORIGINAL Red Baron On Line Game!</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">568</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Wed Feb 16, 2005 12:16 am<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_03c4eb0d0af1a77e.html#20918"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5ff22e1c3947df3f.html" class="topictitle">Free Translation Web Site</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">464</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sun Feb 13, 2005 2:39 pm<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_fc83c20d073bdd2f.html#20892"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5fef351c3945b54d.html" class="topictitle">Solving Most Windows XP Firewall Problems</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">431</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Feb 11, 2005 7:05 pm<br /><a href="profile.php__q_9ad6953928843e81.html">fzredbaron</a> <a href="viewtopic.php__q_fc61cb0d071f0614.html#20875"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5fef301c3945acce.html" class="topictitle">multiplayer</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">0</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_91a87039232b6e37.html">Lt Al great</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">425</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Fri Feb 11, 2005 12:29 pm<br /><a href="profile.php__q_91a87039232b6e37.html">Lt Al great</a> <a href="viewtopic.php__q_fc61ca0d071f0461.html#20872"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5fef311c3945ae81.html" class="topictitle">RaS</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">2</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Esmo1202</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">558</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Thu Feb 10, 2005 1:25 pm<br /><a href="profile.php__q_91af5a3923316783.html">Flight Lt. Biggles</a> <a href="viewtopic.php__q_fc5e3d0d071bdef3.html#20867"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5fef2e1c3945a968.html" class="topictitle">Problems in RAS</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">[*DogWall*]</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">571</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Wed Feb 09, 2005 9:14 pm<br /><a href="profile.php__q_91a4ec3923285814.html">Richthofen</a> <a href="viewtopic.php__q_fc5e3e0d071be0a6.html#20864"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5fe8211c393f74a3.html" class="topictitle">How to beat the Secret Mission</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">[RAS]XRAY</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">653</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sun Feb 06, 2005 8:43 am<br /><a href="profile.php__q_9ac213392872b891.html">KrimsonAce</a> <a href="viewtopic.php__q_fc57bf0d07169d2b.html#20849"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5fe8261c393f7d22.html" class="topictitle">hilfe</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name"><a href="profile.php__q_91a86c39232b676b.html">IRION</a></span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">851</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sun Feb 06, 2005 8:40 am<br /><a href="profile.php__q_9ac213392872b891.html">KrimsonAce</a> <a href="viewtopic.php__q_fc57be0d07169b78.html#20848"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_d930601c7df279d3.html" class="topictitle">Red Ace Squadron IP Server</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">5</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">Madman</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">1500</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Sat Feb 05, 2005 11:30 pm<br /><a href="profile.php__q_91a4ec3923285814.html">Richthofen</a> <a href="viewtopic.php__q_fc57ba0d071694ac.html#20844"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="row1" align="center" valign="middle" width="20"><img src="templates/smallrockets/images/folder_lock.gif" width="19" height="18" alt="This topic is locked: you cannot edit posts or make replies." title="This topic is locked: you cannot edit posts or make replies." /></td>
+	  <td class="row1" width="100%"><span class="topictitle"><a href="viewtopic.php__q_5feba81c39428fdf.html" class="topictitle">red ace squadron</a></span><span class="gensmall"><br />
+		</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">3</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">joehard</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">899</span></td>
+	  <td class="row3Right" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">Wed Feb 02, 2005 9:43 am<br /><a href="profile.php__q_9ac903392878bc0f.html">stimarco</a> <a href="viewtopic.php__q_fc6c3a0d07281736.html#20820"><img src="templates/smallrockets/images/icon_latest_reply.gif" alt="View latest post" title="View latest post" border="0" /></a></span></td>
+	</tr>
+	<tr>
+	  <td class="catBottom" align="center" valign="middle" colspan="6" height="28"><span class="genmed">Display topics from previous:&nbsp;<select name="topicdays"><option value="0" selected="selected">All Topics</option><option value="1">1 Day</option><option value="7">7 Days</option><option value="14">2 Weeks</option><option value="30">1 Month</option><option value="90">3 Months</option><option value="180">6 Months</option><option value="364">1 Year</option></select>&nbsp;
+		<input type="submit" class="liteoption" value="Go" name="submit" />
+		</span></td>
+	</tr>
+  </table>
+
+  <table width="100%" cellspacing="2" border="0" align="center" cellpadding="2">
+	<tr>
+	  <td align="left" valign="middle" width="50"><a href="posting.php__q_4a3e4c21ff17a6c7.html"><img src="templates/smallrockets/images/lang_english/post.gif" border="0" alt="Post new topic" /></a></td>
+	  <td align="left" valign="middle" width="100%"><span class="nav">&nbsp;&nbsp;&nbsp;<a href="index.php.html" class="nav">SmallRockets Discussion Forum Index</a> -> <a class="nav" href="viewforum.php__q_6b9b2579ede72c5a.html">Red Ace Squadron</a></span></td>
+	  <td align="right" valign="middle" nowrap="nowrap"><span class="gensmall">All times are GMT</span><br /><span class="nav">Goto page  <a href="viewforum.php__q_b2d180bc7daf442e.html">Previous</a>&nbsp;&nbsp;<a href="viewforum.php__q_b2d180bc7daf442e.html">1</a>, <b>2</b>, <a href="viewforum.php__q_87366d56c5d49b19.html">3</a>, <a href="viewforum.php__q_7b205eec9045ddb0.html">4</a>, <a href="viewforum.php__q_512a57dbcbbe8998.html">5</a>, <a href="viewforum.php__q_68eb5fc7a1bb1901.html">6</a>, <a href="viewforum.php__q_eae765119273dfbb.html">7</a>, <a href="viewforum.php__q_7f30d054d4bc1b52.html">8</a>&nbsp;&nbsp;<a href="viewforum.php__q_87366d56c5d49b19.html">Next</a></span>
+		</td>
+	</tr>
+	<tr>
+	  <td align="left" colspan="3"><span class="nav">Page <b>2</b> of <b>8</b></span></td>
+	</tr>
+  </table>
+</form>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+	<td align="right">
+<form method="get" name="jumpbox" action="viewforum.php" onSubmit="if(document.jumpbox.f.value == -1){return false;}"><table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td nowrap="nowrap"><span class="gensmall">Jump to:&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ forms['jumpbox'].submit() }"><option value="-1">Select a forum</option><option value="-1">&nbsp;</option><option value="-1">General Discussion</option><option value="-1">----------------</option><option value="10">Small Rockets General Forum</option><option value="25">Small Rockets News (READ ONLY)</option><option value="27">Small Rockets Development Updates (READ ONLY)</option><option value="29">Foreign Language Site Help</option><option value="-1">&nbsp;</option><option value="-1">Our "Red Ace" Games</option><option value="-1">----------------</option><option value="3">Red Ace Games FAQs and Walkthroughs (READ ONLY)</option><option value="30">Red Ace Squadron Pro2 (RAS PRO2)</option><option value="28">Red Ace Squadron Pro (RAS1 PRO)</option><option value="19">Red Ace Squadron</option><option value="24">Red Ace Squadron 2</option><option value="12">Master Of The Skies: The Red Ace</option><option value="-1">&nbsp;</option><option value="-1">Our Other Games</option><option value="-1">----------------</option><option value="5">Assimilation</option><option value="14">Natural Fawn Killers & NFK: Santa's Gone Postal</option><option value="11">Star Monkey</option><option value="6">Mahjongg (READ-ONLY)</option><option value="18">MAD - Global Thermonuclear Warfare</option><option value="9">Poker (READ-ONLY)</option><option value="20">Ultra Assault</option><option value="23">Backgammon (READ-ONLY)</option><option value="16">Tower Of The Ancients (READ-ONLY)</option><option value="31">Art Is Dead (READ-ONLY)</option><option value="-1">&nbsp;</option><option value="-1">Our Free Games. (Support no longer available on these titles.)</option><option value="-1">----------------</option><option value="7">Hot Chix & Gear Stix and Superchix'76</option><option value="15">Jetboat Superchamps and Jetboat 2</option><option value="26">Kayak Extreme</option></select><input type="hidden" name="sid" value="6a3476885859549ff97f729e57c657df" />&nbsp;<input type="submit" value="Go" class="liteoption" /></span></td>
+	</tr>
+</table></form>
+
+</td>
+  </tr>
+</table>
+
+<table width="100%" cellspacing="0" border="0" align="center" cellpadding="0">
+	<tr>
+		<td align="left" valign="top"><table cellspacing="3" cellpadding="0" border="0">
+			<tr>
+				<td width="20" align="left"><img src="templates/smallrockets/images/folder_new.gif" alt="New posts" width="19" height="18" /></td>
+				<td class="gensmall">New posts</td>
+				<td>&nbsp;&nbsp;</td>
+				<td width="20" align="center"><img src="templates/smallrockets/images/folder.gif" alt="No new posts" width="19" height="18" /></td>
+				<td class="gensmall">No new posts</td>
+				<td>&nbsp;&nbsp;</td>
+				<td width="20" align="center"><img src="templates/smallrockets/images/folder_announce.gif" alt="Announcement" width="19" height="18" /></td>
+				<td class="gensmall">Announcement</td>
+			</tr>
+			<tr>
+				<td width="20" align="center"><img src="templates/smallrockets/images/folder_new_hot.gif" alt="New posts [ Popular ]" width="19" height="18" /></td>
+				<td class="gensmall">New posts [ Popular ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td width="20" align="center"><img src="templates/smallrockets/images/folder_hot.gif" alt="No new posts [ Popular ]" width="19" height="18" /></td>
+				<td class="gensmall">No new posts [ Popular ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td width="20" align="center"><img src="templates/smallrockets/images/folder_sticky.gif" alt="Sticky" width="19" height="18" /></td>
+				<td class="gensmall">Sticky</td>
+			</tr>
+			<tr>
+				<td class="gensmall"><img src="templates/smallrockets/images/folder_lock_new.gif" alt="New posts [ Locked ]" width="19" height="18" /></td>
+				<td class="gensmall">New posts [ Locked ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td class="gensmall"><img src="templates/smallrockets/images/folder_lock.gif" alt="No new posts [ Locked ]" width="19" height="18" /></td>
+				<td class="gensmall">No new posts [ Locked ]</td>
+			</tr>
+		</table></td>
+		<td align="right"><span class="gensmall">You <b>cannot</b> post new topics in this forum<br />You <b>cannot</b> reply to topics in this forum<br />You <b>cannot</b> edit your posts in this forum<br />You <b>cannot</b> delete your posts in this forum<br />You <b>cannot</b> vote in polls in this forum<br /></span></td>
+	</tr>
+</table>
+
+
+<div align="center"><span class="copyright"><br /><br />
+<!--
+	We request you retain the full copyright notice below including the link to www.phpbb.com.
+	This not only gives respect to the large amount of time given freely by the developers
+	but also helps build interest, traffic and use of phpBB 2.0. If you cannot (for good
+	reason) retain the full copyright we request you at least leave in place the
+	Powered by phpBB  line, with phpBB linked to www.phpbb.com. If you refuse
+	to include even this then support on our forums may be affected.
+
+	The phpBB Group : 2002
+// -->
+Powered by <a href="http://www.phpbb.com/" target="_phpbb" class="copyright">phpBB</a>  &copy; 2001, 2002 phpBB Group<br /></span></div>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>
+

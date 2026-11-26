@@ -1,0 +1,1 @@
+-license TTWF -run -name "MAD Global Thermonuclear Warfare" -shortname MAD

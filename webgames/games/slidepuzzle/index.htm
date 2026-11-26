@@ -1,0 +1,224 @@
+<html>
+<head>
+<TITLE>Sliding Puzzle</TITLE>
+<META HTTP-EQUIV="expires" CONTENT="now">
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<SCRIPT LANGUAGE="JavaScript">
+var board = new Array();
+var BOARD_WIDTH=4;
+var BOARD_HEIGHT=4;
+var BOARD_SIZE = (BOARD_WIDTH * BOARD_HEIGHT);
+var moveTally = 0;
+function displayInformation(pageURL)
+{
+ window.open(pageURL,"information","width=300,height=350,toolbar=no,scrollbars=yes,status=no,menubar=no");
+}
+function boardReset()
+{
+ for (i = 0; i < (BOARD_SIZE - 1); i++)
+ {
+ board[i] = i + 1;
+ }
+ board[(BOARD_SIZE - 1)] = 0;
+ document.output.display.value = "Make a move!";
+ shuffle();
+}
+function boardClear()
+{
+ for (i = 0; i < (BOARD_SIZE - 1); i++)
+ {
+ board[i] = i + 1;
+ }
+ board[(BOARD_SIZE - 1)] = 0;
+}
+function shuffle()
+{
+ var square1;
+ var square2;
+ var tempNumber;
+ var inversionCount = 0;
+ document.output.display.value = "RESHUFFLING TILES";
+ moveTally = 0;
+ for (i = 0; i < 100; i++)
+ {
+ square1 = Math.round(parseInt(Math.random() * 15));
+ square2 = Math.round(parseInt(Math.random() * 15));
+ tempNumber = board[square1];
+ board[square1] = board[square2];
+ board[square2] = tempNumber;
+ }
+ for (i = 0; i < (BOARD_SIZE - 1); i++)
+ {
+ for (j = i + 1; j < (BOARD_SIZE - 1); j++)
+ {
+ if (board[i] > board[j])
+ {
+ inversionCount++;
+ }
+ }
+ }
+ if ((inversionCount % 2) != 0 || inversionCount == 1)
+ {
+ shuffle();
+ }
+ else displayBoard();
+}
+function displayBoard()
+{
+ document.output.display.value = "Make a move!";
+ for (var i = 0; i < (BOARD_SIZE - 1); i++)
+ {
+ eval("document.tile" + (i + 1) + ".src = \"images/image" + board[i] + ".gif\";");
+ }
+ eval("document.tile" + BOARD_SIZE + ".src = \"images/blank.gif\";");
+}
+function moveTile(tile)
+{
+ if (board[tile] != 0)
+ {
+ var changeTile;
+ var changed = 0;
+ var space = 0;
+ while (board[space] !=0)
+ {
+ space++;
+ }
+ if (((space&3) == (tile&3))||
+ ((space&12) == (tile&12)))
+ {
+ var checkAbove = tile - 4;
+ var checkBelow = tile + 4;
+ var checkLeft = tile - 1;
+ var checkRight = tile + 1;
+ if (checkAbove >= 0)
+ {
+ if (board[checkAbove] == 0)
+ {
+ board[checkAbove] = board[tile];
+ board[tile] = 0;
+ changeTile = checkAbove;
+ changed = 1;
+ }
+ }
+ if (checkBelow < BOARD_SIZE)
+ {
+ if (board[checkBelow] == 0)
+ {
+ board[checkBelow] = board[tile];
+ board[tile] = 0;
+ changeTile = checkBelow;
+ changed = 1;
+ }
+ }
+ if (checkLeft >= 0)
+ {
+ if (board[checkLeft] == 0)
+ {
+ board[checkLeft] = board[tile];
+ board[tile] = 0;
+ changeTile = checkLeft;
+ changed = 1;
+ }
+ }
+ if (checkRight < BOARD_SIZE)
+ {
+ if (board[checkRight] == 0)
+ {
+ board[checkRight] = board[tile];
+ board[tile] = 0;
+ changeTile = checkRight;
+ changed = 1;
+ }
+ }
+ }
+ if (changed == 1)
+ {
+ var winningCount = 0;
+ moveTally++;
+ document.output.display.value = "Moves made: " + moveTally; 
+ eval("document.tile" + (tile + 1) + ".src = \"images/blank.gif\";");
+ eval("document.tile" + (changeTile + 1) + ".src = \"images/image" + board[changeTile] + ".gif\";");
+ for (i = 0; i < (BOARD_SIZE - 1); i++)
+ {
+ if (board[i] == (i + 1))
+ {
+ winningCount++;
+ }
+ }
+ if (board[BOARD_SIZE - 1] == 0)
+ {
+ winningCount++;
+ }
+ if (winningCount == BOARD_SIZE)
+ {
+ var finalString = "CONGRATULATIONS! You have completed the sliding puzzle in " + moveTally + " moves."; 
+ window.alert(finalString);
+ }
+ }
+ }
+}
+</SCRIPT>
+</HEAD>
+</head>
+<BODY BACKGROUND="../../images/pi_game_background.gif" BGCOLOR="#333399" TEXT="#ffffff" LINK="#ffffff" VLINK="#ffffff" ALINK="#ffffff" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 onLoad="boardReset(); displayBoard();">
+<CENTER>
+<IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="10" alt="" border="0"><BR>
+<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=0>
+<TR>
+<TD VALIGN="top">
+<OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" WIDTH="604" HEIGHT="60" CODEBASE="http://active.macromedia.com/flash5/cabs/">
+<PARAM NAME="MOVIE" VALUE="../../adverts/poker.swf">
+<PARAM NAME="PLAY" VALUE="true">
+<PARAM NAME="LOOP" VALUE="true">
+<PARAM NAME="QUALITY" VALUE="high">
+<EMBED SRC="../../adverts/poker.swf" WIDTH="604" HEIGHT="60" PLAY="true" LOOP="true" QUALITY="high" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+</EMBED>
+</OBJECT>
+</TD>
+</TR>
+</TABLE>
+<BR><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="4" alt="" border="0"><BR>
+<TABLE WIDTH=604 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR>
+<TD VALIGN="top"><IMG SRC="images/pi_header.gif"></TD>
+<TD VALIGN="top" ALIGN="right"><A HREF="../../../index.html"><IMG SRC="../../images/bt_return_to_smallrockets.gif" BORDER=0></A></TD>
+</TR>
+</TABLE>
+<table border=0 cellspacing="0" cellpadding="0" WIDTH="604"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 604=2 HEIGHT=2><IMG SRC="../../shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#9999ff">
+<TABLE>
+<TR>
+<TD VALIGN="top">
+<CENTER>
+<table border=0 cellspacing="0" cellpadding="0" WIDTH="160"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 160=2 HEIGHT=2><IMG SRC="../../shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#6666cc">
+<CENTER><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="5" alt="" border="0">
+<FONT FACE="Verdana,Arial,Helvetica" SIZE=2><B>Solution:
+<TABLE BORDER=1 BORDERCOLOR="#333399" CELLPADDING=0 CELLSPACING=0 WIDTH=144>
+<TR>
+<TD VALIGN="top"><IMG SRC="images/image1.gif" NAME="showTile1" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image2.gif" NAME="showTile2" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image3.gif" NAME="showTile3" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image4.gif" NAME="showTile4" BORDER=0 WIDTH=35 HEIGHT=26><BR><IMG SRC="images/image5.gif" NAME="showTile5" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image6.gif" NAME="showTile6" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image7.gif" NAME="showTile7" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image8.gif" NAME="showTile8" BORDER=0 WIDTH=35 HEIGHT=26><BR><IMG SRC="images/image9.gif" NAME="showTile9" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image10.gif" NAME="showTile10" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image11.gif" NAME="showTile11" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image12.gif" NAME="showTile12" BORDER=0 WIDTH=35 HEIGHT=26><BR><IMG SRC="images/image13.gif" NAME="showTile13" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image14.gif" NAME="showTile14" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/image15.gif" NAME="showTile15" BORDER=0 WIDTH=35 HEIGHT=26><IMG SRC="images/blank.gif" NAME="showTile16" BORDER=0 WIDTH=35 HEIGHT=26></TD>
+</TR>
+</TABLE><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="5" alt="" border="0"></TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../../shared/box_bottomright.gif"></td></tr> </TABLE>
+<FORM NAME="output">
+<table border=0 cellspacing="0" cellpadding="0" WIDTH="160"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 160=2 HEIGHT=2><IMG SRC="../../shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#6666cc">
+<CENTER><FONT FACE="Verdana,Arial,Helvetica" SIZE=2><B>Current Status:
+<INPUT TYPE="text" NAME="display" SIZE=18><BR><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="4" alt="" border="0">
+<BR><A HREF="index.chtm.html" onClick="boardReset(); return false" onMouseOver="if (document.images){document.reshuffle.src='../../images/bt_reshuffle_on.gif';}" onMouseOut="if (document.images){document.reshuffle.src='../../images/bt_reshuffle.gif';}"><IMG SRC="../../images/bt_reshuffle.gif" BORDER=0 NAME="reshuffle" VSPACE=5 HEIGHT=20 WIDTH=130></A>
+<A HREF="../../index.htm" onMouseOver="if (document.images){document.back.src='../../images/bt_home_on.gif';}" onMouseOut="if (document.images){document.back.src='../../images/bt_home.gif';}"><IMG SRC="../../images/bt_home.gif" NAME="back" BORDER=0 HEIGHT=20 WIDTH=130></A>
+<A HREF="index.htm" onClick="displayInformation('information.htm'); return false" onMouseOver="if (document.images){document.information.src='../../images/bt_information_on.gif';}" onMouseOut="if (document.images){document.information.src='../../images/bt_information.gif';}"><IMG SRC="../../images/bt_information.gif" NAME="information" BORDER=0 HEIGHT=20 WIDTH=130 VSPACE=5></A>
+</FORM>
+</TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../../shared/box_bottomright.gif"></td></tr> </TABLE>
+</TD>
+<TD VALIGN="top">
+<table border=0 cellspacing="0" cellpadding="0" WIDTH="442"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 442=2 HEIGHT=2><IMG SRC="../../shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#6666cc">
+<CENTER><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="5" alt="" border="0">
+<TABLE BORDER=1 BORDERCOLOR="#333399" CELLPADDING=0 CELLSPACING=0 WIDTH=404>
+<TR>
+<TD VALIGN="top"><A HREF="index.htm" onClick="moveTile(0); return false"><IMG SRC="images/spacer.gif" NAME="tile1" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(1); return false"><IMG SRC="images/spacer.gif" NAME="tile2" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(2); return false"><IMG SRC="images/spacer.gif" NAME="tile3" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(3); return false"><IMG SRC="images/spacer.gif" NAME="tile4" BORDER=0 WIDTH=100 HEIGHT=75></A><BR><A href="index.htm" onClick="moveTile(4); return false"><IMG SRC="images/spacer.gif" NAME="tile5" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(5); return false"><IMG SRC="images/spacer.gif" NAME="tile6" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(6); return false"><IMG SRC="images/spacer.gif" NAME="tile7" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(7); return false"><IMG SRC="images/spacer.gif" NAME="tile8" BORDER=0 WIDTH=100 HEIGHT=75></A><BR><A href="index.htm" onClick="moveTile(8); return false"><IMG SRC="images/spacer.gif" NAME="tile9" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(9); return false"><IMG SRC="images/spacer.gif" NAME="tile10" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(10); return false"><IMG SRC="images/spacer.gif" NAME="tile11" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(11); return false"><IMG SRC="images/spacer.gif" NAME="tile12" BORDER=0 WIDTH=100 HEIGHT=75></A><BR><A href="index.htm" onClick="moveTile(12); return false"><IMG SRC="images/spacer.gif" NAME="tile13" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(13); return false"><IMG SRC="images/spacer.gif" NAME="tile14" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(14); return false"><IMG SRC="images/spacer.gif" NAME="tile15" BORDER=0 WIDTH=100 HEIGHT=75></A><A href="index.htm" onClick="moveTile(15); return false"><IMG SRC="images/blank.gif" WIDTH=100 HEIGHT=75 NAME="tile16" BORDER=0></A></TD>
+</TR>
+</TABLE><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="5" alt="" border="0"></TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../../shared/box_bottomright.gif"></td></tr> </TABLE>
+</TD>
+</TR>
+</TABLE>
+</TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../../shared/box_bottomright.gif"></td></tr> </TABLE>
+<FONT FACE="Verdana,Arial,Helvetica" SIZE=2><B>&copy;2001 Small Rockets
+</body>
+</html>

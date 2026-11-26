@@ -1,0 +1,73 @@
+// Global array of types
+var aScoreTypes = new Array();
+// The score type array goes here
+aScoreTypes[0] = "Score";
+aScoreTypes[1] = "Level";
+aScoreTypes[2] = "Checkpoint";
+aScoreTypes[3] = "Accuracy";
+
+// Global for the score table
+var aScoreTable = new Array();
+var aDataTemp;
+// The score table goes here
+aDataTemp = new Array();
+aDataTemp[0] = new ScoreType("Score", "22091600");
+aDataTemp[1] = new ScoreType("Level", "16");
+aDataTemp[2] = new ScoreType("Checkpoint", "96");
+aDataTemp[3] = new ScoreType("Accuracy", "7.97");
+aScoreTable[0] = new ScoreData(1, "Michael Lange", aDataTemp, false);
+aDataTemp = new Array();
+aDataTemp[0] = new ScoreType("Score", "21998000");
+aDataTemp[1] = new ScoreType("Level", "15");
+aDataTemp[2] = new ScoreType("Checkpoint", "90");
+aDataTemp[3] = new ScoreType("Accuracy", "11.85");
+aScoreTable[1] = new ScoreData(2, "Joao Bacellar", aDataTemp, false);
+aDataTemp = new Array();
+aDataTemp[0] = new ScoreType("Score", "19003200");
+aDataTemp[1] = new ScoreType("Level", "14");
+aDataTemp[2] = new ScoreType("Checkpoint", "80");
+aDataTemp[3] = new ScoreType("Accuracy", "19.39");
+aScoreTable[2] = new ScoreData(3, "Flaider Bogdan", aDataTemp, false);
+aDataTemp = new Array();
+aDataTemp[0] = new ScoreType("Score", "18240100");
+aDataTemp[1] = new ScoreType("Level", "13");
+aDataTemp[2] = new ScoreType("Checkpoint", "72");
+aDataTemp[3] = new ScoreType("Accuracy", "30.54");
+aScoreTable[3] = new ScoreData(4, "Kim Yong Lim", aDataTemp, false);
+aDataTemp = new Array();
+aDataTemp[0] = new ScoreType("Score", "16405000");
+aDataTemp[1] = new ScoreType("Level", "12");
+aDataTemp[2] = new ScoreType("Checkpoint", "72");
+aDataTemp[3] = new ScoreType("Accuracy", "10.40");
+aScoreTable[4] = new ScoreData(5, "Rob Klossner", aDataTemp, false);
+aDataTemp = new Array();
+aDataTemp[0] = new ScoreType("Score", "16312750");
+aDataTemp[1] = new ScoreType("Level", "13");
+aDataTemp[2] = new ScoreType("Checkpoint", "75");
+aDataTemp[3] = new ScoreType("Accuracy", "18.11");
+aScoreTable[5] = new ScoreData(6, "Chuck Parrott", aDataTemp, false);
+aDataTemp = new Array();
+aDataTemp[0] = new ScoreType("Score", "15826500");
+aDataTemp[1] = new ScoreType("Level", "12");
+aDataTemp[2] = new ScoreType("Checkpoint", "69");
+aDataTemp[3] = new ScoreType("Accuracy", "8.45");
+aScoreTable[6] = new ScoreData(7, "Rob Klossner", aDataTemp, false);
+aDataTemp = new Array();
+aDataTemp[0] = new ScoreType("Score", "15441600");
+aDataTemp[1] = new ScoreType("Level", "13");
+aDataTemp[2] = new ScoreType("Checkpoint", "63");
+aDataTemp[3] = new ScoreType("Accuracy", "24.56");
+aScoreTable[7] = new ScoreData(8, "Brian Freeman", aDataTemp, false);
+aDataTemp = new Array();
+aDataTemp[0] = new ScoreType("Score", "14885800");
+aDataTemp[1] = new ScoreType("Level", "13");
+aDataTemp[2] = new ScoreType("Checkpoint", "63");
+aDataTemp[3] = new ScoreType("Accuracy", "28.98");
+aScoreTable[8] = new ScoreData(9, "Kim Yong Lim", aDataTemp, false);
+aDataTemp = new Array();
+aDataTemp[0] = new ScoreType("Score", "14644550");
+aDataTemp[1] = new ScoreType("Level", "12");
+aDataTemp[2] = new ScoreType("Checkpoint", "69");
+aDataTemp[3] = new ScoreType("Accuracy", "9.31");
+aScoreTable[9] = new ScoreData(10, "Joao Bacellar", aDataTemp, false);
+

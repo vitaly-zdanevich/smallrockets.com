@@ -1,0 +1,1 @@
+-license Poker -run -name "Poker" -shortname Poker

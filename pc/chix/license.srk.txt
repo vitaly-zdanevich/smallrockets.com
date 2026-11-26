@@ -1,0 +1,1 @@
+-license Chix -run -name "Hot Chix n Gear Stix" -shortname Chix

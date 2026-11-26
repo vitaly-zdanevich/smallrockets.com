@@ -1,0 +1,221 @@
+<HTML>
+<HEAD>
+<TITLE>Concentration</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+var BOARD_WIDTH = 6;
+var BOARD_HEIGHT = 4;
+var BOARD_SIZE = BOARD_WIDTH * BOARD_HEIGHT;
+var MYNULL = 1000;
+var GAME_OVER = 0;
+var GAME_RUNNING = 1;
+var gameState = GAME_RUNNING;
+var tiles = new Array(BOARD_SIZE);
+var moveCount = 0;
+var closeTimer;
+var loadedImageCount = 0;
+var firstSelected, secondSelected;
+function displayInformation(pageURL)
+{
+ window.open(pageURL,"information","width=300,height=350,toolbar=no,scrollbars=yes,status=no,menubar=no");
+}
+function start()
+{
+ gameState = GAME_OVER;
+ boardReset();
+}
+function restart()
+{
+ if (gameState == GAME_RUNNING)
+ {
+ var msg = "You are currently playing a game. Are you sure you want to restart?";
+ if (confirm(msg))
+ {
+ moveCount = 0;
+ clearTimeout(closeTimer);
+ gameState = GAME_OVER;
+ boardReset();
+ }
+ }
+ else
+ {
+ clearTimeout(closeTimer);
+ moveCount = 0;
+ boardReset();
+ }
+}
+function boardReset()
+{
+ var pair = 1;
+ var square1, square2, tempNumber;
+ document.output.display.value = "Choose a tile!";
+ for (i = 0; i < BOARD_SIZE; i += 2)
+ {
+ tiles[i] = pair;
+ tiles[i + 1] = pair;
+ pair++;
+ }
+ for (i = 0; i < 100; i++)
+ {
+ square1 = Math.round(parseInt(Math.random() * BOARD_SIZE));
+ square2 = Math.round(parseInt(Math.random() * BOARD_SIZE));
+ tempNumber = tiles[square1];
+ tiles[square1] = tiles[square2];
+ tiles[square2] = tempNumber;
+ }
+ if (gameState == GAME_OVER)
+ {
+ for (i = 0; i < BOARD_HEIGHT; i++)
+ {
+ for (j = 0; j < BOARD_WIDTH; j++)
+ {
+ eval("document.tiles" + ((BOARD_WIDTH * i) + j) + ".src=\"images/pi_close.gif\";");
+ }
+ }
+ }
+ gameState = GAME_RUNNING;
+ firstSelected = MYNULL;
+ secondSelected = MYNULL;
+}
+function makeMove(currentMove)
+{
+ var moveMade = 0;
+ if ((tiles[currentMove] != 'x') && (currentMove != firstSelected))
+ {
+ if (firstSelected != MYNULL && secondSelected != MYNULL && moveMade == 0)
+ {
+ clearTimeout(closeTimer);
+ resetTiles(firstSelected, secondSelected);
+ firstSelected = currentMove;
+ secondSelected = MYNULL;
+ moveMade = 1;
+ eval("document.tiles" + currentMove + ".src = \"images/tower/tile" + tiles[currentMove] + ".gif\";");
+ }
+ if (firstSelected != MYNULL && secondSelected == MYNULL && moveMade == 0 && gameState != GAME_OVER)
+ {
+ eval("document.tiles" + currentMove + ".src = \"images/tower/tile" + tiles[currentMove] + ".gif\";");
+ secondSelected = currentMove;
+ if (tiles[currentMove] == tiles[firstSelected])
+ {
+ tiles[currentMove] = 'x';
+ tiles[firstSelected] = 'x';
+ firstSelected = MYNULL;
+ secondSelected = MYNULL;
+ checkBoard();
+ moveCount++;
+ moveMade = 1;
+ }
+ else
+ {
+ var tileString;
+ eval("document.tiles" + currentMove + ".src = \"images/tower/tile" + tiles[currentMove] + ".gif\";");
+ closeTimer = setTimeout("resetTiles(firstSelected, secondSelected);", 2000);
+ moveMade = 1;
+ }
+ }
+ if (firstSelected == MYNULL && secondSelected == MYNULL && moveMade == 0)
+ {
+ firstSelected = currentMove;
+ eval("document.tiles" + currentMove + ".src = \"images/tower/tile" + tiles[currentMove] + ".gif\";");
+ moveMade = 1;
+ }
+ }
+}
+function resetTiles(first, second)
+{
+ eval("document.tiles" + first + ".src = \"images/pi_close.gif\";");
+ eval("document.tiles" + second + ".src = \"images/pi_close.gif\";");
+ firstSelected = MYNULL;
+ secondSelected = MYNULL;
+ moveCount++;
+ document.output.display.value = "Failed matches: " + moveCount;
+}
+function checkBoard()
+{
+ var finished = 1;
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ if (tiles[i] != 'x')
+ {
+ finished = 0;
+ }
+ }
+ if (finished == 1)
+ {
+ var msg = "Congratulations! You matched all the tiles in " + moveCount + " moves. Play again?";
+ if (confirm(msg))
+ {
+ moveCount = 0;
+ gameState = GAME_OVER;
+ restart();
+ }
+ else document.location.href = "../../index.htm";
+ }
+}
+</SCRIPT>
+</head>
+<BODY BGCOLOR="#333399" TEXT="#ffffff" LINK="#ffffff" VLINK="#ffffff" ALINK="#ffffff" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 onLoad="boardReset()">
+<CENTER>
+<IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="10" alt="" border="0"><BR>
+<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=0>
+<TR>
+<TD VALIGN="top">
+<OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" WIDTH="604" HEIGHT="60" CODEBASE="http://active.macromedia.com/flash5/cabs/">
+<PARAM NAME="MOVIE" VALUE="../../adverts/nfk.swf">
+<PARAM NAME="PLAY" VALUE="true">
+<PARAM NAME="LOOP" VALUE="true">
+<PARAM NAME="QUALITY" VALUE="high">
+<EMBED SRC="../../adverts/nfk.swf" WIDTH="604" HEIGHT="60" PLAY="true" LOOP="true" QUALITY="high" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+</EMBED>
+</OBJECT>
+</TD>
+</TR>
+</TABLE>
+<BR><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="4" alt="" border="0"><BR>
+<TABLE WIDTH=604 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR>
+<TD VALIGN="top"><IMG SRC="images/pi_header.gif"></TD>
+<TD VALIGN="top" ALIGN="right"><A HREF="../../../index.html"><IMG SRC="../../images/bt_return_to_smallrockets.gif" BORDER=0></A></TD>
+</TR>
+</TABLE>
+<table border=0 cellspacing="0" cellpadding="0" WIDTH="604"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 604=2 HEIGHT=2><IMG SRC="../../shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#9999ff">
+<TABLE>
+<TR>
+<TD VALIGN="top">
+<CENTER>
+<FORM NAME="output">
+<table border=0 cellspacing="0" cellpadding="0" WIDTH="160"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 160=2 HEIGHT=2><IMG SRC="../../shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#6666cc">
+<BR>
+<CENTER><FONT FACE="Verdana,Arial,Helvetica" SIZE=2><B>Current Status:
+<INPUT TYPE="text" NAME="display" SIZE=18><BR><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="4" alt="" border="0">
+<BR><A HREF="index.htm" onClick="restart(); return false" onMouseOver="if (document.images){document.reshuffle.src='../../images/bt_reshuffle_on.gif';}" onMouseOut="if (document.images){document.reshuffle.src='../../images/bt_reshuffle.gif';}"><IMG SRC="../../images/bt_reshuffle.gif" BORDER=0 NAME="reshuffle" VSPACE=5 HEIGHT=20 WIDTH=130></A>
+<A HREF="../../index.htm" onMouseOver="if (document.images){document.back.src='../../images/bt_home_on.gif';}" onMouseOut="if (document.images){document.back.src='../../images/bt_home.gif';}"><IMG SRC="../../images/bt_home.gif" NAME="back" BORDER=0 HEIGHT=20 WIDTH=130></A>
+<A HREF="index.htm" onClick="displayInformation('information.htm'); return false" onMouseOver="if (document.images){document.information.src='../../images/bt_information_on.gif';}" onMouseOut="if (document.images){document.information.src='../../images/bt_information.gif';}"><IMG SRC="../../images/bt_information.gif" NAME="information" BORDER=0 HEIGHT=20 WIDTH=130 VSPACE=5></A>
+</FORM>
+</TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../../shared/box_bottomright.gif"></td></tr> </TABLE>
+</TD>
+<TD VALIGN="top">
+<table border=0 cellspacing="0" cellpadding="0" WIDTH="442"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 442=2 HEIGHT=2><IMG SRC="../../shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#6666cc">
+<CENTER><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="5" alt="" border="0">
+<TABLE BORDER=1 BORDERCOLOR="#333399" CELLPADDING=0 CELLSPACING=0 WIDTH=388>
+<TR>
+<TD VALIGN="top">
+<SCRIPT LANGUAGE="JavaScript">
+for (i = 0; i < BOARD_HEIGHT; i++)
+{
+ for (j = 0; j < BOARD_WIDTH; j++)
+ {
+ document.write("<A HREF=\"index.htm\" onClick=\"makeMove(" + ((i * BOARD_WIDTH) + j) + "); return false\"><IMG SRC=\"images/pi_close.gif\" NAME=\"tiles" + ((i * BOARD_WIDTH) + j) + "\" BORDER=0 WIDTH=64 HEIGHT=64></A>");
+ }
+ document.writeln("<BR>");
+}
+</SCRIPT>
+</TD>
+</TR>
+</TABLE><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="5" alt="" border="0"></TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../../shared/box_bottomright.gif"></td></tr> </TABLE>
+</TD>
+</TR>
+</TABLE>
+</TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../../shared/box_bottomright.gif"></td></tr> </TABLE>
+<FONT FACE="Verdana,Arial,Helvetica" SIZE=2><B>&copy;2001 Small Rockets
+</BODY>
+</HTML>

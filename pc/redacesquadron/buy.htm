@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE="JavaScript1.1" SRC="../../basket.js"></SCRIPT>
+<META NAME="description" CONTENT="Red Ace Squadron is our multiplayer update for the fantastic Red Ace, featuring all new missions and multiplayer modes.">
+<style> a{text-decoration:none; color="#ffffff"; text-decoration:underline;} </style>
+<style fprolloverstyle> A:hover {color: #C0C0C0; } </style>
+<TITLE>Red Ace Squadron | Buy the game now!</TITLE>
+</HEAD>
+<!-- How to buy -->
+<BODY BGCOLOR="#333399" TEXT="#ffffff" LINK="#C0C0C0" ALINK="#ffffff" VLINK="#C0C0C0">
+<SCRIPT LANGUAGE="JavaScript1.1">
+function GetSearchParam(param)
+{
+ var search = document.location.search;
+ search = unescape(search);
+var newvalue = "";
+for(var n=0;n<search.length;n++)
+{
+ if(search.substring(n, n+1) != " ")
+ {
+ newvalue += search.substring(n, n+1);
+ }
+}
+ search = newvalue;
+ if (search.length>0)
+ {
+ search = search.substring(1);
+ var params = search.split('&');
+ for (var i=0;i<params.length;i++)
+ {
+ var value = params[i];
+ var pos=value.indexOf(param + '=');
+ if (pos!=-1)
+ {
+ value = value.substring(param.length + 1);
+ return value;
+ }
+ }
+ }
+ return "";
+}
+function BuyProduct()
+{
+ var skuName;
+ var search = document.location.search;
+ if (search.length>0)
+ {
+ skuName = GetSearchParam('key');
+ }
+ BasketEmpty();
+ BasketAdd(skuName,'Red Ace Squadron','PC',19.99,'.');
+ BasketGotoCheckout();
+ return false;
+}
+</SCRIPT>
+<CENTER>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0> <TR> <TD VALIGN="top" ALIGN="right" WIDTH=200 ROWSPAN=3><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="11" alt="" border="0"><BR><IMG SRC="../../shared/pi_small_rockets_shop_text.gif" WIDTH=200 HEIGHT=25></TD> <TD WIDTH=100%><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="11" alt="" border="0"></TD> <TD VALIGN="bottom" WIDTH=99 ROWSPAN=3><IMG SRC="../../shared/pi_side_rocket.gif" WIDTH=99 HEIGHT=46></TD> </TR> <TR> <TD VALIGN="top" BGCOLOR="#ffffff"><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="25" alt="" border="0"></TD> </TR> <TR> <TD VALIGN="top" BGCOLOR="#333399"><TD><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="10" alt="" border="0"></TD> </TR> </TABLE>
+<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=500>
+<TR>
+<TD VALIGN="top" COLSPAN=3 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="3" HEIGHT="3" alt="" border="0"></TD>
+</TR>
+<TR>
+<TD VALIGN="top" BGCOLOR="#000000" WIDTH=3><IMG SRC="../../shared/spacer.gif" WIDTH="3" HEIGHT="3" alt="" border="0"></TD>
+<TD VALIGN="top" WIDTH=594>
+<TABLE BORDER=0 CELLPADDING=10 CELLSPACING=0 WIDTH=100%>
+<TR>
+<TD VALIGN="top" COLSPAN=2 BGCOLOR="#006699" ALIGN="center"><img src="images/pi_game_logo.gif"></TD>
+</TR>
+<TR>
+<TD VALIGN="top" BGCOLOR="#006699"><img src="images/pi_shop_screen.gif"></TD>
+<TD VALIGN="top" BGCOLOR="#006699"><FONT FACE="Verdana, Helvetica, Arial" SIZE=4><B>Buy Red Ace Squadron</B>
+<P><FONT SIZE=2>Get a license key now for only $19.99!
+<P>
+<B>Features in the full version:</B>
+<UL>
+<LI>Play two new single-player campaigns, or multiplayer via LAN or Internet</LI>
+<LI>Multiplayer allows up to 8 pilots to compete simultaneously</LI>
+<LI>Follow Allied or Central Powers campaigns in single player, with 14 new missions</LI>
+<LI>New power-up stations allow players to re-arm and repair</LI>
+<LI>Pilot two new twin-engined bombers - the Handley Page and the Gotha G IV</LI>
+<LI>Complete campaigns to access special super-hard Master Mode, and a secret mission!</LI>
+</UL>
+</TD>
+</TR>
+<TR>
+<TD COLSPAN=2 BGCOLOR="#006699"><P>
+<CENTER><FONT FACE="Verdana, Helvetica, Arial" SIZE=4><img src="../../shared/arrow.gif" border=0>&nbsp;<A HREF="" onClick="BuyProduct();return false">Continue</A></CENTER>
+</TD>
+</TABLE>
+</TD>
+<TD VALIGN="top" BGCOLOR="#000000" WIDTH=3><IMG SRC="../../shared/spacer.gif" WIDTH="3" HEIGHT="3" alt="" border="0"></TD>
+<TR>
+<TD VALIGN="top" COLSPAN=3 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="3" HEIGHT="3" alt="" border="0"></TD>
+</TR>
+</TABLE>
+<BR>
+<BR>
+</BODY>
+</HTML>

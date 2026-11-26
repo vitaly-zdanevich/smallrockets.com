@@ -1,0 +1,900 @@
+<HTML>
+<HEAD>
+<TITLE>Battleships</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+var hitImage = new Image();
+var missImage = new Image();
+var waterImage = new Image();
+var shipHeadImage = new Image();
+var shipEndImage = new Image();
+shipHeadImage.src = "images/tile4.gif";
+shipEndImage.src = "images/tile5.gif";
+hitImage.src = "images/hit.gif";
+missImage.src = "images/miss.gif";
+waterImage.src = "images/spacer.gif";
+var PLACING_SHIPS = 0;
+var GAME_RUNNING = 1;
+var ATTRACT_MODE = 2;
+var GAME_OVER = 3;
+var BOARD_WIDTH = 10;
+var BOARD_HEIGHT = 10;
+var BOARD_SIZE = BOARD_WIDTH * BOARD_HEIGHT;
+var WATER = 0;
+var HIT = 1;
+var MISS = 2;
+var UP = -BOARD_WIDTH;
+var DOWN = BOARD_WIDTH;
+var LEFT = -1;
+var RIGHT = 1;
+var PLAYER1 = 0;
+var COMPUTER = 1;
+var missCount = 0;
+var gameState = ATTRACT_MODE;
+var shipsToPlace = 5;
+var computerShipsToPlace = 5;
+var validTails = new Array(4);
+var shipHeadPlaced = 0;
+var currentHead;
+var playerBoard = new Array();
+var playerHitBoard = new Array();
+var computerBoard = new Array();
+var computerHitBoard = new Array();
+var lastComputerMove;
+var startStrike;
+var lastHitPosition;
+var lastMoveState;
+var random = 1;
+var checkState = 0;
+var computerShipsDestroyed = new Array();
+var leftChecks = new Array();
+var rightChecks = new Array();
+var aboveChecks = new Array();
+var belowChecks = new Array();
+var direction = UP;
+function displayInformation(pageURL)
+{
+ window.open(pageURL,"information","width=300,height=350,toolbar=no,scrollbars=yes,status=no,menubar=no");
+}
+function gameInit()
+{
+ document.output.display.value="Please place your ships Player 1";
+ if (gameState == GAME_OVER)
+ {
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ if (playerHitBoard[i] != WATER || computerBoard[i] != WATER)
+ {
+ eval("document.board" + i + ".src = waterImage.src;");
+ }
+ if (computerHitBoard[i] != WATER || playerBoard[i] != WATER)
+ {
+ eval("document.hitBoard" + i + ".src = waterImage.src;");
+ }
+ }
+ for (i = 5; i > 0; i--)
+ {
+ if (i > 2)
+ {
+ eval("document.computerShip" + i + ".src = \"images/computership" + i + "ok.gif\";");
+ eval("document.playerShip" + i + ".src = \"images/computership" + i + "ok.gif\";");
+ }
+ if (i == 2)
+ {
+ eval("document.computerShip" + i + ".src = \"images/computership3ok.gif\";");
+ eval("document.playerShip" + i + ".src = \"images/computership3ok.gif\";");
+ }
+ if (i == 1)
+ {
+ eval("document.computerShip" + i + ".src = \"images/computership2ok.gif\";");
+ eval("document.playerShip" + i + ".src = \"images/computership2ok.gif\";");
+ }
+ }
+ }
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ playerBoard[i] = WATER;
+ playerHitBoard[i] = WATER;
+ computerBoard[i] = WATER;
+ computerHitBoard[i] = WATER;
+ }
+ shipsToPlace = 5;
+ computerShipsToPlace = 5;
+ missCount = 0;
+ gameState = PLACING_SHIPS;
+}
+function makeMove(currentPosition)
+{
+ if (gameState == GAME_RUNNING)
+ {
+ if (playerHitBoard[currentPosition] != WATER)
+ {
+ document.output.display.value = "You've already targeted that square. Try again";
+ }
+ if (playerHitBoard[currentPosition] == WATER)
+ {
+ if (computerBoard[currentPosition] == WATER)
+ {
+ playerHitBoard[currentPosition] = MISS;
+ eval("document.board" + currentPosition + ".src = missImage.src;");
+ document.output.display.value = "You missed!";
+ makeComputerMove();
+ }
+ if (computerBoard[currentPosition] != WATER)
+ {
+ playerHitBoard[currentPosition] = HIT;
+ eval("document.board" + currentPosition + ".src = hitImage.src;");
+ document.output.display.value = "You hit something!";
+ makeComputerMove();
+ checkForCompletion(PLAYER1, currentPosition);
+ }
+ }
+ }
+ if (gameState == PLACING_SHIPS)
+ {
+ placeShips(currentPosition);
+ }
+}
+function placeShips(currentPosition)
+{
+ var shipSize = shipsToPlace;
+ var invalid = 0;
+ var moveChecked = 0;
+ if (shipSize == 2)
+ {
+ shipSize = 3;
+ }
+ if (shipSize == 1)
+ {
+ shipSize = 2;
+ }
+ if (shipHeadPlaced == 0)
+ {
+ moveChecked = 1;
+ if (playerBoard[currentPosition] != 0)
+ {
+ invalid = 1;
+ }
+ else
+ {
+ var verticalCheck;
+ var horizontalCheck;
+ shipHeadPlaced = 1;
+ eval("document.board" + currentPosition + ".src = shipHeadImage.src;");
+ currentShipHead = currentPosition;
+ verticalCheck = (currentShipHead - ((shipSize - 1) * BOARD_WIDTH));
+ horizontalCheck = (currentShipHead - (shipSize - 1));
+ if (verticalCheck > 0 && playerBoard[verticalCheck] == 0)
+ {
+ var vInvalid = 0;
+ var checkPos = (currentShipHead - BOARD_WIDTH);
+ if (shipsToPlace != 5) 
+ {
+ for (i = 0; i < (shipSize - 1); i++)
+ {
+ if (playerBoard[checkPos] != WATER)
+ {
+ vInvalid = 1;
+ }
+ else
+ {
+ checkPos -= BOARD_WIDTH;
+ }
+ }
+ }
+ if (vInvalid != 1)
+ {
+ validTails[0] = verticalCheck;
+ }
+ }
+ if (((currentShipHead % BOARD_WIDTH) - (horizontalCheck % BOARD_WIDTH)) > 0 && currentShipHead != 0 && horizontalCheck >= 0)
+ {
+ var vInvalid = 0;
+ var checkPos = (currentShipHead - 1);
+ if (shipsToPlace != 5) 
+ {
+ for (i = 0; i < (shipSize - 1); i++)
+ {
+ if (playerBoard[checkPos] != WATER)
+ {
+ vInvalid = 1;
+ }
+ else
+ {
+ checkPos --;
+ }
+ }
+ }
+ if (vInvalid != 1)
+ {
+ validTails[1] = horizontalCheck;
+ }
+ }
+ verticalCheck = (currentShipHead + ((shipSize - 1) * BOARD_WIDTH));
+ horizontalCheck = (currentShipHead + (shipSize - 1));
+ if (verticalCheck < BOARD_SIZE && playerBoard[verticalCheck] == 0)
+ {
+ var vInvalid = 0;
+ var checkPos = (currentShipHead + BOARD_WIDTH);
+ if (shipsToPlace != 5) 
+ {
+ for (i = 0; i < (shipSize - 1); i++)
+ {
+ if (playerBoard[checkPos] != WATER)
+ {
+ vInvalid = 1;
+ break;
+ }
+ else
+ {
+ checkPos += BOARD_WIDTH;
+ }
+ }
+ }
+ if (vInvalid != 1)
+ {
+ validTails[2] = verticalCheck;
+ }
+ }
+ if (((currentShipHead % BOARD_WIDTH) < (horizontalCheck % BOARD_WIDTH)))
+ {
+ var vInvalid = 0;
+ var checkPos = (currentShipHead + 1);
+ if (shipsToPlace != 5) 
+ {
+ for (i = 0; i < (shipSize - 1); i++)
+ {
+ if (playerBoard[checkPos] != WATER)
+ {
+ vInvalid = 1;
+ }
+ else
+ {
+ checkPos ++;
+ }
+ }
+ }
+ if (vInvalid != 1)
+ {
+ validTails[3] = horizontalCheck;
+ }
+ }
+ var valid = 0;
+ for (i = 0; i < 4; i++)
+ {
+ if (validTails[i] != null)
+ {
+ eval("document.board" + validTails[i] + ".src = \"images/arrow" + i + ".gif\";");
+ valid = 1;
+ }
+ }
+ if (valid == 0)
+ {
+ shipHeadPlaced = 0;
+ eval("document.board" + currentShipHead + ".src = \"images/tile0.gif\";");
+ document.output.display.value = "That is not a valid start position";
+ }
+ }
+ }
+ if (shipHeadPlaced == 1 && moveChecked == 0)
+ {
+ for (i = 0; i < 4; i++)
+ {
+ if (validTails[i] != null)
+ {
+ if (currentPosition == validTails[i])
+ {
+ invalid = 0;
+ addShipToBoard(currentShipHead, validTails[i], shipSize, i, PLAYER1);
+ shipsToPlace --;
+ shipHeadPlaced = 0;
+ if (shipsToPlace == 0)
+ {
+ document.output.display.value ="Please wait - Computer opponent is placing his fleet";
+ gameState = GAME_RUNNING;
+ document.output.display.value ="Please wait - Computer opponent is placing his fleet";
+ for (i = 0; i < 4; i++)
+ {
+ document.output.display.value ="Please wait - Computer opponent is placing his fleet";
+ if (validTails[i] != null)
+ {
+ if (validTails[i] != currentPosition)
+ {
+ eval("document.board" + validTails[i] + ".src = waterImage.src;");
+ }
+ validTails[i] = null;
+ }
+ }
+ document.output.display.value ="Please wait - Computer opponent is placing his fleet";
+ placeComputerShips();
+ }
+ for (i = 0; i < 4; i++)
+ {
+ if (validTails[i] != null)
+ {
+ if (validTails[i] != currentPosition)
+ {
+ eval("document.board" + validTails[i] + ".src = waterImage.src;");
+ }
+ validTails[i] = null;
+ }
+ }
+ }
+ }
+ }
+ }
+}
+function addShipToBoard(head, tail, size, orientation, player)
+{
+ var ship = (size * 10);
+ for (i = 0; i < size; i++)
+ {
+ if (orientation == 0 && player == PLAYER1)
+ {
+ playerBoard[(head - (i * BOARD_WIDTH))] = (ship + i);
+ eval("document.board" + (head - (i * BOARD_WIDTH)) + ".src = \"images/tilev" + playerBoard[(head - (i * BOARD_WIDTH))] + ".gif\";");
+ eval("document.hitBoard" + (head - (i * BOARD_WIDTH)) + ".src = \"images/tilev" + playerBoard[(head - (i * BOARD_WIDTH))] + ".gif\";");
+ }
+ if (orientation == 0 && player == COMPUTER)
+ {
+ computerBoard[(head - (i * BOARD_WIDTH))] = (ship + i);
+ }
+ if (orientation == 1 && player == PLAYER1)
+ {
+ if (i == 0)
+ {
+ ship += (size-1);
+ }
+ playerBoard[(head - i)] = (ship - i);
+ eval("document.board" + (head - i) + ".src = \"images/tileh" + playerBoard[(head - i)] + ".gif\";");
+ eval("document.hitBoard" + (head - i) + ".src = \"images/tileh" + playerBoard[(head - i)] + ".gif\";");
+ }
+ if (orientation == 1 && player == COMPUTER)
+ {
+ if (i == 0)
+ {
+ ship += (size-1);
+ }
+ computerBoard[(head - i)] = (ship - i);
+ }
+ if (orientation == 2 && player == PLAYER1)
+ {
+ if (i == 0)
+ {
+ ship += (size-1);
+ }
+ playerBoard[(head + (i * BOARD_WIDTH))] = (ship - i);
+ eval("document.board" + (head + (i * BOARD_WIDTH)) + ".src = \"images/tilev" + playerBoard[(head + (i * BOARD_WIDTH))] + ".gif\";");
+ eval("document.hitBoard" + (head + (i * BOARD_WIDTH)) + ".src = \"images/tilev" + playerBoard[(head + (i * BOARD_WIDTH))] + ".gif\";");
+ }
+ if (orientation == 2 && player == COMPUTER)
+ {
+ if (i == 0)
+ {
+ ship += (size-1);
+ }
+ computerBoard[(head + (i * BOARD_WIDTH))] = (ship - i);
+ }
+ if (orientation == 3 && player == PLAYER1)
+ {
+ playerBoard[(head + i)] = (ship + i);
+ eval("document.board" + (head + i) + ".src = \"images/tileh" + playerBoard[(head + i)] + ".gif\";");
+ eval("document.hitBoard" + (head + i) + ".src = \"images/tileh" + playerBoard[(head + i)] + ".gif\";");
+ }
+ if (orientation == 3 && player == COMPUTER)
+ {
+ computerBoard[(head + i)] = (ship + i);
+ }
+ }
+}
+function startGame()
+{
+ if (gameState == ATTRACT_MODE || gameState == GAME_OVER)
+ {
+ gameInit();
+ document.output.display.value="Please place your ships Player 1";
+ }
+ else
+ {
+ if (gameState != PLACING_SHIPS)
+ {
+ var msg = "You are currently playing a game. \n\n" +
+ "Are you sure you want to restart?";
+ if (confirm(msg))
+ {
+ gameState = GAME_OVER;
+ gameInit();
+ document.output.display.value="Please place your ships Player 1";
+ }
+ }
+ }
+}
+function placeComputerShips()
+{
+ document.output.display.value ="Please wait - Computer opponent is placing his fleet";
+ var size = computerShipsToPlace;
+ var start, end, orientation;
+ var valid;
+ var validSquares = new Array();
+ if (computerShipsToPlace == 2)
+ {
+ size = 3;
+ }
+ if (computerShipsToPlace == 1)
+ {
+ size = 2;
+ }
+ start = Math.round(parseInt(Math.random() * 100));
+ while(computerBoard[start] != WATER)
+ {
+ start = Math.round(parseInt(Math.random() * 100));
+ }
+ valid = 1;
+ if (((start + computerShipsToPlace) < BOARD_SIZE) && ((start % BOARD_WIDTH) < (BOARD_WIDTH - (size + 1))))
+ {
+ for (i = 0; i < computerShipsToPlace; i++)
+ {
+ if (computerBoard[i + start] != WATER)
+ {
+ valid = 0;
+ }
+ }
+ if (valid == 1)
+ {
+ validSquares[0] = start + computerShipsToPlace;
+ }
+ }
+ if (((start - computerShipsToPlace) > 0) && ((start % BOARD_WIDTH) > (computerShipsToPlace - 1)))
+ {
+ for (i = 0; i < computerShipsToPlace; i++)
+ {
+ if (computerBoard[start - i] != WATER)
+ {
+ valid = 0;
+ }
+ }
+ if (valid == 1)
+ {
+ validSquares[1] = start - computerShipsToPlace;
+ }
+ }
+ if ((start - (computerShipsToPlace * BOARD_WIDTH)) > 0)
+ {
+ for (i = 0; i < computerShipsToPlace; i++)
+ {
+ if (computerBoard[start - (i * BOARD_WIDTH)] != WATER)
+ {
+ valid = 0;
+ }
+ }
+ if (valid == 1)
+ {
+ validSquares[2] = start - (computerShipsToPlace * BOARD_WIDTH);
+ }
+ }
+ if ((start + (computerShipsToPlace * BOARD_WIDTH)) < BOARD_SIZE)
+ {
+ for (i = 0; i < computerShipsToPlace; i++)
+ {
+ if (computerBoard[start - i] != WATER)
+ {
+ valid = 0;
+ }
+ }
+ if (valid == 1)
+ {
+ validSquares[3] = start + (computerShipsToPlace * BOARD_WIDTH);
+ }
+ }
+ orientation = Math.round(parseInt(Math.random() * 3));
+ if (validSquares[orientation] == null)
+ {
+ orientation = Math.round(parseInt(Math.random() * 3));
+ }
+ if (orientation == 0)
+ {
+ if (validSquares[0] == null)
+ {
+ placeComputerShips();
+ }
+ else addShipToBoard(start, validSquares[0], size, 3, COMPUTER);
+ }
+ if (orientation == 1)
+ {
+ if (validSquares[1] == null)
+ {
+ placeComputerShips();
+ }
+ else addShipToBoard(start, validSquares[1], size, 1, COMPUTER);
+ }
+ if (orientation == 2)
+ {
+ if (validSquares[2] == null)
+ {
+ placeComputerShips();
+ }
+ else addShipToBoard(start, validSquares[2], size, 0, COMPUTER);
+ }
+ if (orientation == 3)
+ {
+ if (validSquares[3] == null)
+ {
+ placeComputerShips();
+ }
+ else addShipToBoard(start, validSquares[3], size, 2, COMPUTER);
+ }
+ computerShipsToPlace--;
+ if (computerShipsToPlace > 0)
+ {
+ placeComputerShips();
+ }
+ else
+ {
+ var boardCheck = 0;
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ if (computerBoard[i] != WATER)
+ {
+ boardCheck++;
+ }
+ }
+ if (boardCheck != 17)
+ {
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ computerBoard[i] = WATER;
+ }
+ computerShipsToPlace = 5;
+ placeComputerShips();
+ }
+ resetPlayerBoard();
+ document.output.display.value = "Make a move, player 1";
+ }
+}
+function makeComputerMove()
+{
+ var thisMove = Math.round(parseInt(Math.random() * (100)));
+ var moveMade = 0;
+ while (moveMade == 0)
+ {
+ if (missCount >= 5)
+ {
+ missCount = 0;
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ if (computerHitBoard[i] == WATER && playerBoard[i] != WATER)
+ {
+ thisMove = i;
+ moveMade = 1;
+ break;
+ }
+ }
+ }
+ if (random == 1)
+ {
+ while (computerHitBoard[thisMove] != WATER)
+ {
+ thisMove = Math.round(parseInt(Math.random() * (100)));
+ }
+ moveMade = 1;
+ }
+ if (random == 0)
+ {
+ if (lastMoveState == MISS)
+ {
+ if (direction == UP)
+ {
+ direction = DOWN;
+ thisMove = startStrike + direction;
+ moveMade = 1;
+ break;
+ }
+ if (direction == DOWN)
+ {
+ direction = LEFT;
+ thisMove = startStrike + direction;
+ moveMade = 1;
+ break;
+ }
+ if (direction == LEFT)
+ {
+ direction = RIGHT;
+ thisMove = startStrike + direction;
+ moveMade = 1;
+ break;
+ }
+ if (direction == RIGHT)
+ {
+ direction = UP;
+ random = 1;
+ moveMade = 1;
+ break;
+ }
+ }
+ else
+ {
+ thisMove = lastComputerMove + direction;
+ if (thisMove >= 0 && thisMove < BOARD_SIZE)
+ {
+ moveMade = 1;
+ }
+ else
+ {
+ direction = -direction;
+ thisMove = startStrike + direction;
+ moveMade = 1;
+ }
+ }
+ }
+ }
+ if (computerHitBoard[thisMove] != WATER)
+ {
+ while (computerHitBoard[thisMove] != WATER)
+ {
+ thisMove = Math.round(parseInt(Math.random() * (100)));
+ }
+ }
+ if (playerBoard[thisMove] == WATER)
+ {
+ computerHitBoard[thisMove] = MISS;
+ missCount ++;
+ lastMoveState = MISS;
+ lastComputerMove = thisMove;
+ eval("document.hitBoard" + thisMove + ".src = missImage.src;");
+ }
+ else
+ {
+ computerHitBoard[thisMove] = HIT;
+ missCount = 0;
+ if (lastMoveState == HIT)
+ {
+ if (startStrike == null)
+ {
+ startStrike = thisMove;
+ direction = UP;
+ }
+ lastComputerMove = thisMove;
+ lastHitPosition = thisMove;
+ random = 0;
+ eval("document.hitBoard" + thisMove + ".src = hitImage.src;");
+ }
+ else
+ {
+ lastMoveState = HIT;
+ startStrike = thisMove;
+ lastComputerMove = thisMove;
+ random = 0;
+ eval("document.hitBoard" + thisMove + ".src = hitImage.src;");
+ }
+ checkForCompletion(COMPUTER, thisMove);
+ }
+}
+function resetPlayerBoard()
+{
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ if (playerBoard[i] != WATER)
+ {
+ eval("document.board" + i + ".src = waterImage.src;");
+ }
+ }
+}
+function checkForCompletion(player, position)
+{
+ var incomplete = 0;
+ var shipHit;
+ if (player == PLAYER1)
+ {
+ shipHit = Math.round(computerBoard[position] / BOARD_WIDTH);
+ }
+ else
+ {
+ shipHit = Math.round(playerBoard[position] / BOARD_WIDTH);
+ }
+ var hitCount = 0;
+ if (player == PLAYER1)
+ {
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ if ((playerHitBoard[i] == HIT))
+ {
+ if (Math.round(computerBoard[i] / BOARD_WIDTH) == shipHit)
+ {
+ hitCount++;
+ }
+ }
+ }
+ if (hitCount == shipHit || hitCount == 6)
+ {
+ if (hitCount == 6 && shipHit == 3 && (document.computerShip3.src.indexOf("computership3dead.gif") != -1))
+ {
+ document.output.display.value = "You blew up a size 3 ship!";
+ eval("document.computerShip2.src = \"images/computership3dead.gif\";");
+ }
+ if (shipHit == 2)
+ {
+ document.output.display.value = "You destroyed a size 2 ship!";
+ eval("document.computerShip1.src = \"images/computership2dead.gif\";");
+ }
+ else
+ {
+ document.output.display.value = "You sunk a size " + shipHit + " vessel!";
+ eval("document.computerShip" + shipHit + ".src = \"images/computership" + shipHit + "dead.gif\";");
+ }
+ }
+ }
+ if (player == COMPUTER)
+ {
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ if ((computerHitBoard[i] == HIT))
+ {
+ if (Math.round(playerBoard[i] / BOARD_WIDTH) == shipHit)
+ {
+ hitCount++;
+ }
+ }
+ }
+ if (hitCount == shipHit || hitCount == 6)
+ {
+ if (hitCount == 6 && shipHit == 3 && (document.playerShip3.src.indexOf("computership3dead.gif") != -1))
+ {
+ eval("document.playerShip2.src = \"images/computership3dead.gif\";");
+ }
+ if (shipHit == 2)
+ {
+ eval("document.playerShip1.src = \"images/computership2dead.gif\";");
+ }
+ else
+ {
+ eval("document.playerShip" + shipHit + ".src = \"images/computership" + shipHit + "dead.gif\";");
+ }
+ }
+}
+ if (player == PLAYER1)
+ {
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ if (computerBoard[i] != WATER)
+ {
+ if (playerHitBoard[i] != HIT)
+ {
+ incomplete = 1;
+ break;
+ }
+ }
+ }
+ if (incomplete == 0 && gameState == GAME_RUNNING)
+ {
+ window.alert("Congratulations, you won");
+ gameState = GAME_OVER;
+ }
+ }
+ if (player == COMPUTER)
+ {
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ if (playerBoard[i] != WATER)
+ {
+ if (computerHitBoard[i] != HIT)
+ {
+ incomplete = 1;
+ break;
+ }
+ }
+ }
+ if (incomplete == 0 && gameState == GAME_RUNNING)
+ {
+ for (i = 0; i < BOARD_SIZE; i++)
+ {
+ if (computerBoard[i] != WATER && playerHitBoard[i] == WATER)
+ {
+ if ((Math.round(computerBoard[i] / BOARD_WIDTH) == Math.round(computerBoard[(i - 1)] / BOARD_WIDTH)) || (Math.round(computerBoard[i] / BOARD_WIDTH) == Math.round(computerBoard[(i + 1)] / BOARD_WIDTH)))
+ {
+ eval("document.board" + i + ".src = \"images/tileh" + computerBoard[i] + ".gif\";");
+ }
+ else
+ {
+ eval("document.board" + i + ".src = \"images/tilev" + computerBoard[i] + ".gif\";");
+ }
+ }
+ }
+ window.alert("Sorry, you lost");
+ gameState = GAME_OVER;
+ }
+ }
+}
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#333399" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 TEXT="#ffffff" onLoad="startGame();">
+<CENTER>
+<IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="10" alt="" border="0"><BR>
+<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=0>
+<TR>
+<TD VALIGN="top">
+<OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" WIDTH="604" HEIGHT="60" CODEBASE="http://active.macromedia.com/flash5/cabs/">
+<PARAM NAME="MOVIE" VALUE="../../adverts/assimilation.swf">
+<PARAM NAME="PLAY" VALUE="true">
+<PARAM NAME="LOOP" VALUE="true">
+<PARAM NAME="QUALITY" VALUE="high">
+<EMBED SRC="../../adverts/assimilation.swf" WIDTH="604" HEIGHT="60" PLAY="true" LOOP="true" QUALITY="high" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+</EMBED>
+</OBJECT>
+</TD>
+</TR>
+</TABLE>
+<BR><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="4" alt="" border="0"><BR>
+<TABLE WIDTH=604 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR>
+<TD VALIGN="top"><IMG SRC="images/pi_header.gif"></TD>
+<TD VALIGN="top" ALIGN="right"><A HREF="../../../index.html"><IMG SRC="../../images/bt_return_to_smallrockets.gif" BORDER=0></A></TD>
+</TR>
+</TABLE>
+<table border=0 cellspacing="0" cellpadding="0" WIDTH="604"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 604=2 HEIGHT=2><IMG SRC="../../shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#9999ff">
+<TABLE>
+<TR>
+<TD VALIGN="top">
+<CENTER>
+<FORM NAME="output">
+<table border=0 cellspacing="0" cellpadding="0" WIDTH="160"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 160=2 HEIGHT=2><IMG SRC="../../shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#6666cc">
+<BR>
+<CENTER>
+<TABLE BORDER=1 BORDERCOLOR="#333399" BACKGROUND="images/pi_small_water_bg.jpg" BGCOLOR="#3366ff" CELLPADDING=0 CELLSPACING=0>
+<TR>
+<TD VALIGN="top">
+<SCRIPT LANGUAGE="JavaScript">
+for (i = 0; i < BOARD_HEIGHT; i++)
+{
+ for (j = 0; j < BOARD_WIDTH; j++)
+ {
+ document.write("<IMG SRC=\"images/spacer.gif\" BORDER=0 WIDTH=13 HEIGHT=13 NAME=\"hitBoard" + ((i * BOARD_WIDTH) + j) + "\">");
+ }
+ document.write("<BR>");
+}
+</SCRIPT>
+</TD>
+</TR>
+</TABLE>
+<FONT FACE="Verdana,Arial,Helvetica" SIZE=2><B>Current Status:
+<TEXTAREA COLS=14 ROWS=3 NAME="display"></TEXTAREA><!--<INPUT TYPE="text" NAME="display" SIZE=18>--><BR><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="4" alt="" border="0">
+<BR><A href="index.htm" onClick="startGame(); return false" onMouseOver="if (document.images){document.reshuffle.src='../../images/bt_restart_on.gif';}" onMouseOut="if (document.images){document.reshuffle.src='../../images/bt_restart.gif';}"><IMG SRC="../../images/bt_restart.gif" BORDER=0 NAME="reshuffle" VSPACE=5 HEIGHT=20 WIDTH=130></A>
+<A HREF="../../index.htm" onMouseOver="if (document.images){document.back.src='../../images/bt_home_on.gif';}" onMouseOut="if (document.images){document.back.src='../../images/bt_home.gif';}"><IMG SRC="../../images/bt_home.gif" NAME="back" BORDER=0 HEIGHT=20 WIDTH=130></A>
+<A href="index.htm" onClick="displayInformation('information.htm'); return false" onMouseOver="if (document.images){document.information.src='../../images/bt_information_on.gif';}" onMouseOut="if (document.images){document.information.src='../../images/bt_information.gif';}"><IMG SRC="../../images/bt_information.gif" NAME="information" BORDER=0 HEIGHT=20 WIDTH=130 VSPACE=5></A>
+</FORM>
+</TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../../shared/box_bottomright.gif"></td></tr> </TABLE>
+</TD>
+<TD VALIGN="top">
+<table border=0 cellspacing="0" cellpadding="0" WIDTH="442"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 442=2 HEIGHT=2><IMG SRC="../../shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#6666cc">
+<CENTER><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="5" alt="" border="0">
+<TABLE ALIGN="right" HEIGHT=302 WIDTH=115 CELLPADDING=0 CELLSPACING=0>
+<TR>
+<TD VALIGN="top" BACKGROUND="images/bg_scoreboard.gif" WIDTH=110><CENTER><IMG SRC="images/pi_computer_text.gif" VSPACE=10><BR>
+<IMG SRC="images/computership2ok.gif" NAME="computerShip1"><BR><IMG SRC="images/computership3ok.gif" NAME="computerShip2" VSPACE=2><BR><IMG SRC="images/computership3ok.gif" NAME="computerShip3"><BR><IMG SRC="images/computership4ok.gif" NAME="computerShip4" VSPACE=2><BR><IMG SRC="images/computership5ok.gif" NAME="computerShip5">
+<P>
+<IMG SRC="images/pi_player1_text.gif" VSPACE=5><BR><IMG SRC="images/computership2ok.gif" NAME="playerShip1"><BR><IMG SRC="images/computership3ok.gif" NAME="playerShip2" VSPACE=2><BR><IMG SRC="images/computership3ok.gif" NAME="playerShip3"><BR><IMG SRC="images/computership4ok.gif" NAME="playerShip4" VSPACE=2><BR><IMG SRC="images/computership5ok.gif" NAME="playerShip5">
+</TD>
+<TD WIDTH=5><IMG SRC="../../shared/spacer.gif" WIDTH="5" HEIGHT="1" alt="" border="0"></TD>
+</TR>
+</TABLE>
+<TABLE BORDER=1 BORDERCOLOR="#333399" BACKGROUND="images/pi_large_water_bg.jpg" BGCOLOR="#3366ff" CELLPADDING=0 CELLSPACING=0 WIDTH=304>
+<TR>
+<TD VALIGN="top">
+<SCRIPT LANGUAGE="JavaScript">
+for (i = 0; i < BOARD_HEIGHT; i++)
+{
+ for (j = 0; j < BOARD_WIDTH; j++)
+ {
+ document.write("<A HREF=\"index.htm\" onClick=\"makeMove(" + ((i * BOARD_WIDTH) + j) + "); return false\"><IMG SRC=\"images/spacer.gif\" BORDER=0 NAME=\"board" + ((i * BOARD_WIDTH) + j) + "\" WIDTH=30 HEIGHT=30></A>");
+ }
+ document.write("<BR>");
+}
+</SCRIPT>
+</TD>
+</TR>
+</TABLE><IMG SRC="../../shared/spacer.gif" WIDTH="1" HEIGHT="5" alt="" border="0"></TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../../shared/box_bottomright.gif"></td></tr> </TABLE>
+</TD>
+</TR>
+</TABLE>
+</TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../../shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../../shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../../shared/box_bottomright.gif"></td></tr> </TABLE>
+<FONT FACE="Verdana,Arial,Helvetica" SIZE=2><B>&copy;2001 Small Rockets
+</BODY>
+</HTML>

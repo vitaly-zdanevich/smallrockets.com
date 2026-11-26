@@ -1,0 +1,516 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<link rel="top" href="index.php.html" title="SmallRockets Discussion Forum Index" />
+<link rel="search" href="search.php.html" title="Search" />
+<link rel="help" href="faq.php.html" title="FAQ" />
+<link rel="author" href="memberlist.php.html" title="Memberlist" />
+
+<title>SmallRockets Discussion :: Search</title>
+<!-- link rel="stylesheet" href="templates/subSilver/smallrockets.css" type="text/css" -->
+<style type="text/css">
+<!--
+/*
+  The original subSilver Theme for phpBB version 2+
+  Created by subBlue design
+  http://www.subBlue.com
+
+  NOTE: These CSS definitions are stored within the main page body so that you can use the phpBB2
+  theme administration centre. When you have finalised your style you could cut the final CSS code
+  and place it in an external file, deleting this section to save bandwidth.
+*/
+
+/* General page style. The scroll bar colours only visible in IE5.5+ */
+body {
+	background-color: #FFCC0;
+	scrollbar-face-color: #DEE3E7;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-shadow-color: #DEE3E7;
+	scrollbar-3dlight-color: #D1D7DC;
+	scrollbar-arrow-color:  #333399;
+	scrollbar-track-color: #EFEFEF;
+	scrollbar-darkshadow-color: #98AAB1;
+}
+
+/* General font families for common tags */
+font,th,td,p { font-family: Verdana, Helvetica, Arial }
+a:link,a:active,a:visited { color : #333399; }
+a:hover		{ text-decoration: underline; color : #; }
+hr	{ height: 0px; border: solid #D1D7DC 0px; border-top-width: 1px;}
+
+/* This is the border line & background colour round the entire page */
+.bodyline	{ background-color: #FFFFFF; border: 1px #98AAB1 solid; }
+
+/* This is the outline round the main forum tables */
+.forumline	{ background-color: #FFFFFF; border: 2px #006699 solid; }
+
+/* Main table cell colours and backgrounds */
+td.row1	{ background-color: #EFEFEF; }
+td.row2	{ background-color: #DEE3E7; }
+td.row3	{ background-color: #D1D7DC; }
+
+/*
+  This is for the table cell above the Topics, Post & Last posts on the index.php page
+  By default this is the fading out gradiated silver background.
+  However, you could replace this with a bitmap specific for each forum
+*/
+td.rowpic {
+		background-color: #FFFFFF;
+		background-image: url(templates/subSilver/images/);
+		background-repeat: repeat-y;
+}
+
+/* Header cells - the blue and silver gradient backgrounds */
+th	{
+	color: #FFA34F; font-size: 11px; font-weight : bold;
+	background-color: #333399; height: 25px;
+	background-image: url(templates/subSilver/images/);
+}
+
+td.cat,td.catHead,td.catSides,td.catLeft,td.catRight,td.catBottom {
+			background-image: url(templates/subSilver/images/);
+			background-color:#D1D7DC; border: #FFFFFF; border-style: solid; height: 28px;
+}
+
+/*
+  Setting additional nice inner borders for the main table cells.
+  The names indicate which sides the border will be on.
+  Don't worry if you don't understand this, just ignore it :-)
+*/
+td.cat,td.catHead,td.catBottom {
+	height: 29px;
+	border-width: 0px 0px 0px 0px;
+}
+th.thHead,th.thSides,th.thTop,th.thLeft,th.thRight,th.thBottom,th.thCornerL,th.thCornerR {
+	font-weight: bold; border: #FFFFFF; border-style: solid; height: 28px;
+}
+td.row3Right,td.spaceRow {
+	background-color: #D1D7DC; border: #FFFFFF; border-style: solid;
+}
+
+th.thHead,td.catHead { font-size: 12px; border-width: 1px 1px 0px 1px; }
+th.thSides,td.catSides,td.spaceRow	 { border-width: 0px 1px 0px 1px; }
+th.thRight,td.catRight,td.row3Right	 { border-width: 0px 1px 0px 0px; }
+th.thLeft,td.catLeft	  { border-width: 0px 0px 0px 1px; }
+th.thBottom,td.catBottom  { border-width: 0px 1px 1px 1px; }
+th.thTop	 { border-width: 1px 0px 0px 0px; }
+th.thCornerL { border-width: 1px 0px 0px 1px; }
+th.thCornerR { border-width: 1px 1px 0px 0px; }
+
+/* The largest text used in the index page title and toptic title etc. */
+.maintitle	{
+	font-weight: bold; font-size: 22px; font-family: "",Verdana, Helvetica, Arial;
+	text-decoration: none; line-height : 120%; color : #333399;
+}
+
+/* General text */
+.gen { font-size : 12px; }
+.genmed { font-size : 11px; }
+.gensmall { font-size : 10px; }
+.gen,.genmed,.gensmall { color : #333399; }
+a.gen,a.genmed,a.gensmall { color: #333399; text-decoration: none; }
+a.gen:hover,a.genmed:hover,a.gensmall:hover	{ color: #; text-decoration: underline; }
+
+/* The register, login, search etc links at the top of the page */
+.mainmenu		{ font-size : 11px; color : #333399 }
+a.mainmenu		{ text-decoration: none; color : #333399;  }
+a.mainmenu:hover{ text-decoration: underline; color : #; }
+
+/* Forum category titles */
+.cattitle		{ font-weight: bold; font-size: 12px ; letter-spacing: 1px; color : #333399}
+a.cattitle		{ text-decoration: none; color : #333399; }
+a.cattitle:hover{ text-decoration: underline; }
+
+/* Forum title: Text and link to the forums used in: index.php */
+.forumlink		{ font-weight: bold; font-size: 12px; color : #333399; }
+a.forumlink 	{ text-decoration: none; color : #333399; }
+a.forumlink:hover{ text-decoration: underline; color : #; }
+
+/* Used for the navigation text, (Page 1,2,3 etc) and the navigation bar when in a forum */
+.nav			{ font-weight: bold; font-size: 11px; color : #333399;}
+a.nav			{ text-decoration: none; color : #333399; }
+a.nav:hover		{ text-decoration: underline; }
+
+/* titles for the topics: could specify viewed link colour too */
+.topictitle,h1,h2	{ font-weight: bold; font-size: 11px; color : #333399; }
+a.topictitle:link   { text-decoration: none; color : #333399; }
+a.topictitle:visited { text-decoration: none; color : #000000; }
+a.topictitle:hover	{ text-decoration: underline; color : #; }
+
+/* Name of poster in viewmsg.php and viewtopic.php and other places */
+.name			{ font-size : 11px; color : #333399;}
+
+/* Location, number of posts, post date etc */
+.postdetails		{ font-size : 10px; color : #333399; }
+
+/* The content of the posts (body of text) */
+.postbody { font-size : 12px; line-height: 18px}
+a.postlink:link	{ text-decoration: none; color : #333399 }
+a.postlink:visited { text-decoration: none; color : #000000; }
+a.postlink:hover { text-decoration: underline; color : #}
+
+/* Quote & Code blocks */
+.code {
+	font-family: ; font-size: 11px; color: #006600;
+	background-color: #FAFAFA; border: #D1D7DC; border-style: solid;
+	border-left-width: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px
+}
+
+.quote {
+	font-family: Verdana, Helvetica, Arial; font-size: 11px; color: #444444; line-height: 125%;
+	background-color: #FAFAFA; border: #D1D7DC; border-style: solid;
+	border-left-width: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px
+}
+
+/* Copyright and bottom info */
+.copyright		{ font-size: 10px; font-family: Verdana, Helvetica, Arial; color: #444444; letter-spacing: -1px;}
+a.copyright		{ color: #444444; text-decoration: none;}
+a.copyright:hover { color: #333399; text-decoration: underline;}
+
+/* Form elements */
+input,textarea, select {
+	color : #333399;
+	font: normal 11px Verdana, Helvetica, Arial;
+	border-color : #333399;
+}
+
+/* The text input fields background colour */
+input.post, textarea.post, select {
+	background-color : #FFFFFF;
+}
+
+input { text-indent : 2px; }
+
+/* The buttons used for bbCode styling in message post */
+input.button {
+	background-color : #EFEFEF;
+	color : #333399;
+	font-size: 11px; font-family: Verdana, Helvetica, Arial;
+}
+
+/* The main submit button option */
+input.mainoption {
+	background-color : #FAFAFA;
+	font-weight : bold;
+}
+
+/* None-bold submit button */
+input.liteoption {
+	background-color : #FAFAFA;
+	font-weight : normal;
+}
+
+/* This is the line in the posting page which shows the rollover
+  help line. This is actually a text box, but if set to be the same
+  colour as the background no one will know ;)
+*/
+.helpline { background-color: #DEE3E7; border-style: none; }
+
+/* Import the fancy styles for IE only (NS4.x doesn't use the @import function) */
+@import url("templates/subSilver/formIE.css");
+-->
+</style>
+</head>
+<body bgcolor="#FFCC0" text="#333399" link="#333399" vlink="#000000">
+
+<a name="top"></a>
+
+<table width="100%" cellspacing="0" cellpadding="10" border="0" align="center">
+	<tr>
+		<td class="bodyline"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+                                <td>
+<a href="../index.html"><img src="templates/smallrockets/images/logo_smallrockets.gif" border="0" alt="SmallRockets Discussion Forum Index" vspace="1" /></a>
+</td>
+				<td align="center" width="100%" valign="middle"><span class="maintitle">SmallRockets Discussion</span><br /><span class="gen">Discussions and information<br />&nbsp; </span>
+				<table cellspacing="0" cellpadding="2" border="0">
+					<tr>
+						<td align="center" valign="top" nowrap="nowrap"><span class="mainmenu">&nbsp;<a href="faq.php.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_faq.gif" width="12" height="13" border="0" alt="FAQ" hspace="3" />FAQ</a></span><span class="mainmenu">&nbsp; &nbsp;<a href="search.php.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_search.gif" width="12" height="13" border="0" alt="Search" hspace="3" />Search</a>&nbsp; &nbsp;<a href="memberlist.php.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_members.gif" width="12" height="13" border="0" alt="Memberlist" hspace="3" />Memberlist</a>&nbsp; &nbsp;<a href="groupcp.php.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_groups.gif" width="12" height="13" border="0" alt="Usergroups" hspace="3" />Usergroups</a>&nbsp;
+						&nbsp;<a href="profile.php__q_cbec47f8b71cc4e8.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_register.gif" width="12" height="13" border="0" alt="Register" hspace="3" />Register</a></span>&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<td height="25" align="center" valign="top" nowrap="nowrap"><span class="mainmenu">&nbsp;<a href="profile.php__q_e1fd4c8daf0fa86a.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_profile.gif" width="12" height="13" border="0" alt="Profile" hspace="3" />Profile</a>&nbsp; &nbsp;<a href="privmsg.php__q_056e466523aafbe0.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_message.gif" width="12" height="13" border="0" alt="Log in to check your private messages" hspace="3" />Log in to check your private messages</a>&nbsp; &nbsp;<a href="login.php.html" class="mainmenu"><img src="templates/subSilver/images/icon_mini_login.gif" width="12" height="13" border="0" alt="Log in" hspace="3" />Log in</a>&nbsp;</span></td>
+					</tr>
+				</table></td>
+			</tr>
+		</table>
+
+		<br />
+
+
+<table width="100%" cellspacing="2" cellpadding="2" border="0" align="center">
+  <tr>
+	<td align="left" valign="bottom"><span class="maintitle">Search found 15 matches</span><br /></td>
+  </tr>
+</table>
+
+<table width="100%" cellspacing="2" cellpadding="2" border="0" align="center">
+  <tr>
+	<td align="left"><span class="nav"><a href="index.php.html" class="nav">SmallRockets Discussion Forum Index</a></span></td>
+  </tr>
+</table>
+
+<table border="0" cellpadding="3" cellspacing="1" width="100%" class="forumline" align="center">
+  <tr>
+	<th width="150" height="25" class="thCornerL" nowrap="nowrap">Author</th>
+	<th width="100%" class="thCornerR" nowrap="nowrap">Message</th>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_3083ff7e1345c4f1.html" class="topictitle">Questions about missions</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>6</b><br />
+	  Views: <b>1329</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9b2579ede72c5a.html" class="postdetails">Red Ace Squadron</a></b>&nbsp; &nbsp;Posted: Mon Apr 10, 2006 4:28 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_78b9ab25403674d3.html#23152">Questions about missions</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">[quote="bjdbrad"]Thank you very much, I got there but have another question, the sticky note I was reading talked about the secret mission being the perfect place to practice at your own pace on how t ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_3094fd7e135434be.html" class="topictitle">Any news, yet???</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>6</b><br />
+	  Views: <b>1542</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9e1c79ede952e6.html" class="postdetails">Red Ace Squadron Pro (RAS1 PRO)</a></b>&nbsp; &nbsp;Posted: Tue Mar 07, 2006 5:20 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_81c25725456f5b45.html#23077">Any news, yet???</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">FZ its no prob,<br />just thought i would pass on the little bit i know till the cavalvry came  <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" /> <br />it takes as long as it takes..dont forget the 7 p,s    Perfect Planning and Preparation Prevents Piss P ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_3094fd7e135434be.html" class="topictitle">Any news, yet???</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>6</b><br />
+	  Views: <b>1542</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9e1c79ede952e6.html" class="postdetails">Red Ace Squadron Pro (RAS1 PRO)</a></b>&nbsp; &nbsp;Posted: Tue Mar 07, 2006 4:35 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_81c25525456f57df.html#23075">Any news, yet???</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">Rbr<br />did no one tell you it was feb 2007? <img src="images/smiles/icon_smile.gif" alt="Smile" border="0" /> <br />joking bud, we are all waiting patiently ish for the test team to give the go ahead . what heros they are  <img src="images/smiles/icon_biggrin.gif" alt="Very Happy" border="0" /> <br />fZ is usually so on top of the posts he i ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_3094fb7e13543158.html" class="topictitle">server update</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>2</b><br />
+	  Views: <b>1018</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9e1c79ede952e6.html" class="postdetails">Red Ace Squadron Pro (RAS1 PRO)</a></b>&nbsp; &nbsp;Posted: Sun Mar 05, 2006 4:28 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_81c25225456f52c6.html#23072">Black screen of death</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">red one <br />regarding your prob with your system locking up with black screen i had similar prob with my old comp which turned out to be a case of system overload especially ram..try using the search fa ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_3094fe7e13543671.html" class="topictitle">HELP!!!! I CANT JOIN MULTIPLAYER IN GAMESPY!!!!!</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>3</b><br />
+	  Views: <b>1249</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9b2579ede72c5a.html" class="postdetails">Red Ace Squadron</a></b>&nbsp; &nbsp;Posted: Sat Mar 04, 2006 4:31 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_81c25125456f5113.html#23071">HELP!!!! I CANT JOIN MULTIPLAYER IN GAMESPY!!!!!</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">eve mr mash,<br />     assuming you havnt played about with any of the ras files.( if you have and they dont match hosts room you wont connect)..is it a passworded room your trying to get into?.. if not , ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_3094fb7e13543158.html" class="topictitle">server update</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>2</b><br />
+	  Views: <b>1018</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9e1c79ede952e6.html" class="postdetails">Red Ace Squadron Pro (RAS1 PRO)</a></b>&nbsp; &nbsp;Posted: Thu Mar 02, 2006 4:24 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_81c5d72545726a9c.html#23067">server update</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">Hi red one...<br />dont worry it runs forever just leave it to count and get into game. has no effect on my comp regarding performance , just let it tick away while you go play..<br />             have fun<br />  ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_395d117e185634f3.html" class="topictitle">Invert Mouse</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>1</b><br />
+	  Views: <b>832</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9b2579ede72c5a.html" class="postdetails">Red Ace Squadron</a></b>&nbsp; &nbsp;Posted: Fri Feb 17, 2006 4:16 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_81cfe625457ad89e.html#23036">Re: Invert Mouse</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">Any way I can invert the mouse?<br /><br />I just can't get the hang of the default mouse control.<br />evenin Mr guest ,<br />you may want to be a bit more specific on the problem are you talking about. do you mean  ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_3948a57e1844d465.html" class="topictitle">Participate in Multiplayer</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>2</b><br />
+	  Views: <b>1221</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9e1c79ede952e6.html" class="postdetails">Red Ace Squadron Pro (RAS1 PRO)</a></b>&nbsp; &nbsp;Posted: Thu Feb 16, 2006 4:39 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_81d36d25457df3da.html#23021">Participate in Multiplayer</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">http://www.smallrockets.com/forums/viewtopic.php?t=10507&amp;highlight=   <br />hope this is of some help Jack if not im sure you will get more help soon.<br />good luck..<br />                     slugg</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_424e4b7e1d7b7ace.html" class="topictitle">What Is Your Favorite Combat View?</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>18</b><br />
+	  Views: <b>5364</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9e2879ede9674a.html" class="postdetails">Red Ace Squadron 2</a></b>&nbsp; &nbsp;Posted: Wed Jan 11, 2006 5:01 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_868a9b1c2a550615.html#22805">What Is Your Favorite Combat View?</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">[quote="sad dragon"]a cockpit would be very nice. but only as an option. if you are planning to have 1 single view, keep the current one.<br /><br />only jokin sad dragon..nice thought tho. wonder if the warb ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_424e4b7e1d7b7ace.html" class="topictitle">What Is Your Favorite Combat View?</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>18</b><br />
+	  Views: <b>5364</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9e2879ede9674a.html" class="postdetails">Red Ace Squadron 2</a></b>&nbsp; &nbsp;Posted: Tue Jan 10, 2006 3:09 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_e6576b1c60bd8d94.html#22796">What Is Your Favorite Combat View?</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">Full 360 please <img src="images/smiles/icon_lol.gif" alt="Laughing" border="0" /> ..or as is fine with me tc. chaps</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_0def4c7dffb49e53.html" class="topictitle">Thank You Letters To Jonathan For RAS PRO</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>22</b><br />
+	  Views: <b>7582</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9e1c79ede952e6.html" class="postdetails">Red Ace Squadron Pro (RAS1 PRO)</a></b>&nbsp; &nbsp;Posted: Wed Jun 15, 2005 1:51 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_b1964415fa5da5c1.html#21826">Thank You Letters To Jonathan For RAS PRO</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">A special thanks to jonathan, you and your team have just made a truly simplistic and awesome playable fun game even better.the only bad thing about the game is you dont provide discount vouchers for  ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_16f4727e04ea6b3c.html" class="topictitle">I have to miss out on the tournament</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>4</b><br />
+	  Views: <b>1873</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9b2579ede72c5a.html" class="postdetails">Red Ace Squadron</a></b>&nbsp; &nbsp;Posted: Mon May 30, 2005 3:28 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_2f37d215b0664a5e.html#21719">I have to miss out on the tournament</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">Krimson..<br />you dont have to worry xray is paying for all us in europe to fly over to his for the week..all expenses paid..free food an beer for all  <img src="images/smiles/icon_lol.gif" alt="Laughing" border="0" /> <br /> cheers x for trying to drop the time back  ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_201f2b7e0a404e2b.html" class="topictitle">Red Ace Squadron</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>5</b><br />
+	  Views: <b>1533</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9e2879ede9674a.html" class="postdetails">Red Ace Squadron 2</a></b>&nbsp; &nbsp;Posted: Sat May 28, 2005 1:02 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_38628815b5bc2834.html#21692">re/gamespy account</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">Luke..<br />download it old bean..tis free no account needed but it helps to subscribe after you get in there..no pop up ads etc..have fun..<br />            sirluggo</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_68fe601c3e83df3a.html" class="topictitle">cheat mode</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>14</b><br />
+	  Views: <b>3511</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9e2879ede9674a.html" class="postdetails">Red Ace Squadron 2</a></b>&nbsp; &nbsp;Posted: Fri Apr 01, 2005 2:42 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_5ae31515c93c6536.html#21243">cheat mode</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">so funny how one question sparks off so much controversy.. <img src="images/smiles/icon_biggrin.gif" alt="Very Happy" border="0" /> <br />all good comments chaps.just read em all an thought ..what was the question again..lol..maybe we should have our ini files scanned on th ...</span></td>
+  </tr>
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="topictitle"><img src="templates/subSilver/images/folder.gif" align="absmiddle">&nbsp; Topic:&nbsp;<a href="viewtopic.php__q_2029297e0a489f4a.html" class="topictitle">Red Ace Demo controls are overly sensitive?</a></span></td>
+  </tr>
+  <tr>
+	<td width="150" align="left" valign="top" class="row1" rowspan="2"><span class="name"><b><a href="profile.php__q_919e5d392322f969.html">sirluggo</a></b></span><br />
+	  <br />
+	  <span class="postdetails">Replies: <b>5</b><br />
+	  Views: <b>2141</b></span><br />
+	</td>
+	<td width="100%" valign="top" class="row1"><img src="templates/smallrockets/images/icon_minipost.gif" width="12" height="9" alt="Post" title="Post" border="0" /><span class="postdetails">Forum:&nbsp;<b><a href="viewforum.php__q_6b9b2579ede72c5a.html" class="postdetails">Red Ace Squadron</a></b>&nbsp; &nbsp;Posted: Mon Mar 28, 2005 1:59 pm&nbsp; &nbsp;Subject: <b><a href="viewtopic.php__q_5ae99b15c941b496.html#21225">mouse settings</a></b></span></td>
+  </tr>
+  <tr>
+	<td valign="top" class="row1"><span class="postbody">Joe.<br />you prolly gt it sorted by now but with a mouse its a bit tricky to set up we all play with the plane flying at different sensitivity levels so keep trying till you find what suits you..differen ...</span></td>
+  </tr>
+  <tr>
+	<td class="catBottom" colspan="2" height="28" align="center">&nbsp; </td>
+  </tr>
+</table>
+
+<table width="100%" cellspacing="2" border="0" align="center" cellpadding="2">
+  <tr>
+	<td align="left" valign="top"><span class="nav">Page <b>1</b> of <b>1</b></span></td>
+	<td align="right" valign="top" nowrap="nowrap"><span class="nav"></span><br /><span class="gensmall">All times are GMT</span></td>
+  </tr>
+</table>
+
+<table width="100%" cellspacing="2" border="0" align="center">
+  <tr>
+	<td valign="top" align="right">
+<form method="get" name="jumpbox" action="viewforum.php" onSubmit="if(document.jumpbox.f.value == -1){return false;}"><table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td nowrap="nowrap"><span class="gensmall">Jump to:&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ forms['jumpbox'].submit() }"><option value="-1">Select a forum</option><option value="-1">&nbsp;</option><option value="-1">General Discussion</option><option value="-1">----------------</option><option value="10">Small Rockets General Forum</option><option value="25">Small Rockets News (READ ONLY)</option><option value="27">Small Rockets Development Updates (READ ONLY)</option><option value="29">Foreign Language Site Help</option><option value="-1">&nbsp;</option><option value="-1">Our "Red Ace" Games</option><option value="-1">----------------</option><option value="3">Red Ace Games FAQs and Walkthroughs (READ ONLY)</option><option value="30">Red Ace Squadron Pro2 (RAS PRO2)</option><option value="28">Red Ace Squadron Pro (RAS1 PRO)</option><option value="19">Red Ace Squadron</option><option value="24">Red Ace Squadron 2</option><option value="12">Master Of The Skies: The Red Ace</option><option value="-1">&nbsp;</option><option value="-1">Our Other Games</option><option value="-1">----------------</option><option value="5">Assimilation</option><option value="14">Natural Fawn Killers & NFK: Santa's Gone Postal</option><option value="11">Star Monkey</option><option value="6">Mahjongg (READ-ONLY)</option><option value="18">MAD - Global Thermonuclear Warfare</option><option value="9">Poker (READ-ONLY)</option><option value="20">Ultra Assault</option><option value="23">Backgammon (READ-ONLY)</option><option value="16">Tower Of The Ancients (READ-ONLY)</option><option value="31">Art Is Dead (READ-ONLY)</option><option value="-1">&nbsp;</option><option value="-1">Our Free Games. (Support no longer available on these titles.)</option><option value="-1">----------------</option><option value="7">Hot Chix & Gear Stix and Superchix'76</option><option value="15">Jetboat Superchamps and Jetboat 2</option><option value="26">Kayak Extreme</option></select><input type="hidden" name="sid" value="6a3476885859549ff97f729e57c657df" />&nbsp;<input type="submit" value="Go" class="liteoption" /></span></td>
+	</tr>
+</table></form>
+
+</td>
+  </tr>
+</table>
+
+
+<div align="center"><span class="copyright"><br /><br />
+<!--
+	We request you retain the full copyright notice below including the link to www.phpbb.com.
+	This not only gives respect to the large amount of time given freely by the developers
+	but also helps build interest, traffic and use of phpBB 2.0. If you cannot (for good
+	reason) retain the full copyright we request you at least leave in place the
+	Powered by phpBB  line, with phpBB linked to www.phpbb.com. If you refuse
+	to include even this then support on our forums may be affected.
+
+	The phpBB Group : 2002
+// -->
+Powered by <a href="http://www.phpbb.com/" target="_phpbb" class="copyright">phpBB</a>  &copy; 2001, 2002 phpBB Group<br /></span></div>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>
+

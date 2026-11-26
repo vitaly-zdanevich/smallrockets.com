@@ -1,0 +1,1 @@
+-license Tower -run -name "Tower of the Ancients" -shortname Tower

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head><title>Untitled Document</title>
+</head><body>AContent-Type: text/html; charset=ISO-8859-1
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head><title>Untitled Document</title>
+</head><body><SCRIPT LANGUAGE="JavaScript">
+var QUESTION_FRAME = parent.quizcontent.document;
+var questionSet = new Array();
+var currentQuestion = 0;
+var questionTimer;
+var questionColors = new Array("yellow","red","purple","green","yellow","red","purple");
+var playerAnswerSetID;
+var submitDate;
+var language = "{LANG}";
+var submitted = 0;
+var textCorrect="Correct!";
+var textIncorrect="Incorrect";
+var textAnswer="Answer";
+var textOutOfTime="Out of time";
+var playerTotal=0;
+function Question( questionid,question, category)
+{
+ this.questionid = questionid;
+ this.question = question;
+ this.category = category;
+ this.answerids = new Array();
+ this.answers = new Array();
+ this.other = new Array();
+ this.givenanswer = -1;
+ this.display = displayQuestion;
+ this.addAnswer = addAnswerQuestion;
+ this.setGivenAnswer = setGivenAnswerQuestion;
+ this.getGivenAnswer = getGivenAnswerQuestion;
+ this.getQuestionID = getQuestionIDQuestion;
+ this.getAnswer = getAnswerQuestion;
+}
+function getGivenAnswerQuestion()
+{
+ return this.givenanswer;
+}
+function getQuestionIDQuestion()
+{
+ return this.questionid;
+}
+function addAnswerQuestion(answerid,answertext,other)
+{
+ this.answers[this.answers.length] = answertext;
+ this.answerids[this.answerids.length] = answerid;
+ this.other[this.other.length] = other;
+}
+function getAnswerQuestion()
+{
+ var i;
+ for (i=0;i<this.answerids.length+1;i++)
+ {
+ if (this.other[i] != 0)
+ {
+ return this.answers[i];
+ }
+ }
+ return "";
+}
+function setGivenAnswerQuestion(answerid)
+{
+ var i;
+ this.givenanswer = answerid;
+ if (answerid<0)
+ {
+ return 0;
+ }
+ for (i=0;i<this.answerids.length+1;i++)
+ {
+ if (this.answerids[i] == answerid)
+ {
+ return this.other[i];
+ }
+ }
+ return 0;
+}
+function displayQuestion()
+{
+ var i;
+ if (currentQuestion < questionSet.length)
+ {
+ questionTimer = setTimeout("giveAnswer(-1)", 60000);
+ }
+ doHeader();
+ QUESTION_FRAME.writeln("<BR><CENTER><FONT FACE=\"Verdana, Arial, Helvetica\" SIZE=3><B>");
+ QUESTION_FRAME.writeln((currentQuestion + 1) + ":");
+ QUESTION_FRAME.writeln(this.question + "<P>");
+ for (i=0;i<this.answers.length;i++)
+ {
+ QUESTION_FRAME.writeln("<A HREF=\"/webgames/games/quiz/index.htm\" onClick=\"parent.code.giveAnswer("+this.answerids[i]+"); return false\">" + this.answers[i] + "</A><BR>");
+ }
+ QUESTION_FRAME.writeln("<P>&nbsp;");
+ doFooter();
+}
+function initQuestions()
+{
+ var q;
+ q = new Question(773,"Lester Piggot and Pet Elleray are associated with which sport?",4);
+q.addAnswer(2,"weightlifting",0);
+q.addAnswer(0,"horse racing",1);
+q.addAnswer(1,"archery",0);
+q.addAnswer(3,"snooker",0);
+
+questionSet[0] = q;
+
+q = new Question(595,"What is the name of the green felt on a snooker table?",4);
+q.addAnswer(1,"the maize",0);
+q.addAnswer(0,"the baize",1);
+q.addAnswer(3,"the daze",0);
+q.addAnswer(2,"the haze",0);
+
+questionSet[1] = q;
+
+q = new Question(1198,"What was Ken Kesey\'s group of counter-culture bus-travellers called?",1);
+q.addAnswer(1,"The Funny Japesters",0);
+q.addAnswer(0,"The Merry Pranksters",1);
+q.addAnswer(2,"The Dotty Nutters",0);
+q.addAnswer(3,"Alcoholics Anonymous",0);
+
+questionSet[2] = q;
+
+q = new Question(470,"Which of the following series of numbers are called \'Fibonacci\'s numbers\'?",2);
+q.addAnswer(0,"1,1, 2, 3, 5, 8",1);
+q.addAnswer(2,"22+33+44",0);
+q.addAnswer(1,"1, 3, 5, 7, 9",0);
+q.addAnswer(3,"2, 4, 8, 16, 32",0);
+
+questionSet[3] = q;
+
+q = new Question(313,"Which group was Gerry Garcia famously a member of?",1);
+q.addAnswer(0,"The Grateful Dead",1);
+q.addAnswer(2,"The Beach Boys",0);
+q.addAnswer(1,"Pink Floyd",0);
+q.addAnswer(3,"Barclay James Harvest",0);
+
+questionSet[4] = q;
+
+q = new Question(937,"Which Formula One team does Eddie Irvine race for?",4);
+q.addAnswer(0,"Jaguar",1);
+q.addAnswer(3,"McLaren",0);
+q.addAnswer(2,"BMW",0);
+q.addAnswer(1,"Prost",0);
+
+questionSet[5] = q;
+
+q = new Question(1039,"In Islam, what heralds the last day of Ramadan?",2);
+q.addAnswer(2,"a lunar eclipse",0);
+q.addAnswer(1,"the 28th day of fasting",0);
+q.addAnswer(0,"the sighting of the new moon",1);
+q.addAnswer(3,"the first sunrise of the New Year",0);
+
+questionSet[6] = q;
+
+q = new Question(168,"In which novel does Boo Radley appear?",1);
+q.addAnswer(2,"East of Eden",0);
+q.addAnswer(3,"The Colour Purple",0);
+q.addAnswer(0,"To Kill a Mocking Bird",1);
+q.addAnswer(1,"The Grapes of Wrath",0);
+
+questionSet[7] = q;
+
+q = new Question(61,"In which city is the football club Lazio based?",4);
+q.addAnswer(1,"Florence",0);
+q.addAnswer(3,"Bologna",0);
+q.addAnswer(0,"Rome",1);
+q.addAnswer(2,"Madrid",0);
+
+questionSet[8] = q;
+
+q = new Question(1009,"What is a \'rhinoplasty\'?",2);
+q.addAnswer(1,"a face lift",0);
+q.addAnswer(3,"an operation to pin the ears back",0);
+q.addAnswer(0,"a nose job",1);
+q.addAnswer(2,"liposuction",0);
+
+questionSet[9] = q;
+
+submitDate = "2004-04-28";
+language = "uk";
+textCorrect = "Correct!";
+textIncorrect = "Incorrect";
+textOutOfTime = "Out of time";
+textAnswer = "Answer";
+
+}
+function giveAnswer(choice)
+{
+ clearTimeout(questionTimer);
+ var res = questionSet[currentQuestion].setGivenAnswer(choice);
+ if (res !=0)
+ {
+ questionTimer = setTimeout("nextQuestion()", 800);
+ }
+ else
+ {
+ questionTimer = setTimeout("nextQuestion()", 1600);
+ }
+ doHeader();
+ if (choice<0)
+ {
+ QUESTION_FRAME.writeln("<CENTER><FONT FACE=\"Verdana, Arial, Helvetica\" SIZE=4><B>"+textOutOfTime+"!");
+ }
+ else
+ {
+ if (res == 0)
+ {
+ QUESTION_FRAME.writeln("<BR><CENTER><FONT FACE=\"Verdana, Arial, Helvetica\" SIZE=4><B>"+textIncorrect+".");
+ QUESTION_FRAME.writeln("<P>");
+ QUESTION_FRAME.writeln("<FONT SIZE=3>"+textAnswer+":");
+ QUESTION_FRAME.writeln(questionSet[currentQuestion].getAnswer());
+ QUESTION_FRAME.writeln("<P>&nbsp;");
+ }
+ else
+ {
+ QUESTION_FRAME.writeln("<BR><CENTER><FONT FACE=\"Verdana, Arial, Helvetica\" SIZE=4><B>"+textCorrect);
+ QUESTION_FRAME.writeln("<P>&nbsp;");
+ playerTotal++;
+ }
+ }
+ doFooter();
+}
+function doHeader()
+{
+ QUESTION_FRAME.open();
+ QUESTION_FRAME.writeln("<HTML>");
+ QUESTION_FRAME.writeln("<HEAD>");
+ QUESTION_FRAME.writeln("<SCRIPT LANGUAGE=\"JavaScript\">");
+ QUESTION_FRAME.writeln("function displayInformation(pageURL)");
+ QUESTION_FRAME.writeln("{");
+ QUESTION_FRAME.writeln("window.open(pageURL,\"information\",\"width=300,height=350,toolbar=no,scrollbars=yes,status=no,menubar=no\");\n");
+ QUESTION_FRAME.writeln("}");
+ QUESTION_FRAME.write("</SCR");
+ QUESTION_FRAME.write("IPT>");
+ QUESTION_FRAME.writeln("</HEAD>");
+ QUESTION_FRAME.writeln("<BODY BGCOLOR=\"#333399\" TEXT=\"#ffffff\" LINK=\"#0000ff\" VLINK=\"#0000ff\">");
+ QUESTION_FRAME.writeln("<CENTER>");
+ QUESTION_FRAME.writeln('<IMG SRC="../webgames/shared/spacer.gif" WIDTH="1" HEIGHT="10" alt="" border="0"><BR>');
+ QUESTION_FRAME.writeln("<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=0>");
+ QUESTION_FRAME.writeln("<TR>");
+ QUESTION_FRAME.writeln("<TD VALIGN=\"top\">");
+ QUESTION_FRAME.writeln("<OBJECT CLASSID=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" WIDTH=\"604\" HEIGHT=\"60\" CODEBASE=\"http://active.macromedia.com/flash5/cabs/\"><PARAM NAME=\"MOVIE\" VALUE=\"../webgames/adverts/poker.swf\">");
+ QUESTION_FRAME.writeln("<PARAM NAME=\"PLAY\" VALUE=\"true\">");
+ QUESTION_FRAME.writeln("<PARAM NAME=\"LOOP\" VALUE=\"true\">");
+ QUESTION_FRAME.writeln("<PARAM NAME=\"QUALITY\" VALUE=\"high\">");
+ QUESTION_FRAME.writeln("<EMBED SRC=\"../webgames/adverts/poker.swf\" WIDTH=\"604\" HEIGHT=\"60\" PLAY=\"true\" LOOP=\"true\" QUALITY=\"high\" PLUGINSPAGE=\"http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash\">");
+ QUESTION_FRAME.writeln("</EMBED>");
+ QUESTION_FRAME.writeln("</OBJECT>");
+ QUESTION_FRAME.writeln("</TD>");
+ QUESTION_FRAME.writeln("</TR>");
+ QUESTION_FRAME.writeln("</TABLE>");
+ QUESTION_FRAME.writeln('<BR><IMG SRC="../webgames/shared/spacer.gif" WIDTH="1" HEIGHT="4" alt="" border="0"><BR>');
+ QUESTION_FRAME.writeln("<TABLE WIDTH=604 BORDER=0 CELLPADDING=0 CELLSPACING=0>");
+ QUESTION_FRAME.writeln("<TR>");
+ QUESTION_FRAME.writeln("<TD VALIGN=\"top\"><IMG SRC=\"../webgames/images/pi_header.gif\"></TD>");
+ QUESTION_FRAME.writeln("<TD VALIGN=\"top\" ALIGN=\"right\"><A HREF=\"../index.html\"><IMG SRC=\"../webgames/images/bt_return_to_smallrockets.gif\" BORDER=0></A></TD>");
+ QUESTION_FRAME.writeln("</TR>");
+ QUESTION_FRAME.writeln("</TABLE>");
+ QUESTION_FRAME.writeln("<TABLE BORDER=0>");
+ QUESTION_FRAME.writeln("<TR>");
+ QUESTION_FRAME.writeln("<TD VALIGN=\"top\">");
+ QUESTION_FRAME.writeln('<table border=0 cellspacing="0" cellpadding="0" WIDTH="160"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../webgames/shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../webgames/shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 160=2 HEIGHT=2><IMG SRC="../webgames/shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../webgames/shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#9999ff">');
+ QUESTION_FRAME.writeln("<CENTER>");
+ QUESTION_FRAME.writeln("<BR>");
+ QUESTION_FRAME.writeln("<A HREF=\"../webgames/index.htm\" TARGET=\"_top\" onMouseOver=\"if (document.images){document.back.src='../webgames/images/bt_home_on.gif';}\" onMouseOut=\"if (document.images){document.back.src='../webgames/images/bt_home.gif';}\"><IMG SRC=\"../webgames/images/bt_home.gif\" NAME='back' BORDER=0 HEIGHT=20 WIDTH=130></A>");
+ QUESTION_FRAME.writeln("<A HREF=\"index.htm\" onClick=\"displayInformation('../webgames/games/quiz/information.htm'); return false\" onMouseOver=\"if (document.images){document.information.src='../webgames/images/bt_information_on.gif';}\" onMouseOut=\"if (document.images){document.information.src='../webgames/images/bt_information.gif';}\"><IMG SRC=\"../webgames/images/bt_information.gif\" NAME='information' BORDER=0 HEIGHT=20 WIDTH=130 VSPACE=5></A>");
+ QUESTION_FRAME.writeln("<BR>&nbsp;");
+ QUESTION_FRAME.writeln('</TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../webgames/shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../webgames/shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../webgames/shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../webgames/shared/box_bottomright.gif"></td></tr> </TABLE>');
+ QUESTION_FRAME.writeln("</TD>");
+ QUESTION_FRAME.writeln("<TD VALIGN=\"top\">");
+ QUESTION_FRAME.writeln('<table border=0 cellspacing="0" cellpadding="0" WIDTH="440"> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../webgames/shared/box_topleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../webgames/shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td 440=2 HEIGHT=2><IMG SRC="../webgames/shared/box_topright.gif"></td></tr> <TR><TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../webgames/shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD> <TD bgcolor="#9999ff">');
+}
+function doFooter()
+{
+ QUESTION_FRAME.writeln('</TD> <TD WIDTH=2 BGCOLOR="#000000"><IMG SRC="../webgames/shared/spacer.gif" WIDTH="2" HEIGHT="1" alt="" border="0"></TD></TR> <tr><td WIDTH=2 HEIGHT=2><IMG SRC="../webgames/shared/box_bottomleft.gif"></td><td bgcolor="#000000" HEIGHT=2><IMG SRC="../webgames/shared/spacer.gif" WIDTH="2" HEIGHT="2" alt="" border="0"></td><td width=2 HEIGHT=2><IMG SRC="../webgames/shared/box_bottomright.gif"></td></tr> </TABLE>');
+ QUESTION_FRAME.writeln("</TD>");
+ QUESTION_FRAME.writeln("</TR>");
+ QUESTION_FRAME.writeln("<TABLE>");
+ QUESTION_FRAME.writeln("<FONT FACE=\"Verdana,Arial,Helvetica\" SIZE=2><B>&copy;2001 Small Rockets");
+ QUESTION_FRAME.writeln("</BODY>");
+ QUESTION_FRAME.writeln("</HTML>");
+ QUESTION_FRAME.close();
+}
+function nextQuestion()
+{
+ clearTimeout(questionTimer);
+ if (currentQuestion < questionSet.length-1)
+ {
+ currentQuestion++;
+ questionSet[currentQuestion].display();
+ }
+ else
+ {
+ var i;
+ var answers="";
+ for (i=0;i<questionSet.length;i++)
+ {
+ answers = answers + questionSet[i].getQuestionID() + "," + questionSet[i].getGivenAnswer() + ",";
+ }
+ if (submitted == 1)
+ {
+ parent.location.href = "webgames/games/quiz/index.htm";
+ }
+ else
+ {
+ submitted = 1;
+ doResults();
+ }
+ }
+}
+function beginRunning()
+{
+ initQuestions();
+ questionSet[0].display();
+}
+function doResults()
+{
+ var i,j,k, correct;
+ doHeader();
+ QUESTION_FRAME.writeln("<BR><CENTER><FONT FACE=\"Verdana, Arial, Helvetica\" SIZE=4><B>Results:");
+ QUESTION_FRAME.writeln("<P>");
+ QUESTION_FRAME.writeln("<FONT SIZE=3>You got " + playerTotal + " questions right!</B>"); 
+ QUESTION_FRAME.writeln("<P>");
+ QUESTION_FRAME.writeln("<B>Here\'s what you got wrong:</B><P>"); 
+ correct = -1;
+ for (i=0; i < questionSet.length; i++)
+ { 
+ for (j=0; j < questionSet[i].answerids.length; j++)
+ {
+ if (questionSet[i].answerids[j] == questionSet[i].givenanswer)
+ {
+ correct = j; 
+ }
+ }
+ if (questionSet[i].other[correct] == 0 && correct != -1)
+ {
+ QUESTION_FRAME.writeln((i + 1) + ": " + questionSet[i].question);
+ QUESTION_FRAME.writeln("<BR>");
+ QUESTION_FRAME.writeln("<B>Answer:</B> " + questionSet[i].getAnswer());
+ QUESTION_FRAME.writeln("<P>");
+ correct = -1;
+ } 
+ }
+ doFooter();
+}
+beginRunning();
+</SCRIPT>
+</HEAD>
+</body></html>
